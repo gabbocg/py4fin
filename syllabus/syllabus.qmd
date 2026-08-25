@@ -16,7 +16,9 @@ office: "N/A"
 classroom: "Webex"
 
 logo: logo_uchile.png
-logo-width: '0.22\textwidth'
+# Matches the original syllabus, which used \includegraphics[scale=0.10] on
+# this same 346px-wide file: 346px / 72dpi = 4.81in natural, x 0.10 = 0.48in.
+logo-width: '0.48in'
 
 bibliography: references.bib
 nocite: |
