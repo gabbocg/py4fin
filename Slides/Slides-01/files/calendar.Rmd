@@ -1,0 +1,145 @@
+---
+output:
+  pdf_document:
+    latex_engine: pdflatex
+    keep_tex: false
+classoption: landscape
+geometry: margin=1.2cm
+header-includes:
+  - \usepackage[english]{babel}
+  - \usepackage{calc,array,longtable,booktabs}
+  - \usepackage{colortbl}
+  - \usepackage{xcolor}
+  - \pagestyle{empty}
+  - \setlength{\tabcolsep}{3pt}
+  - \renewcommand{\arraystretch}{1.05}
+---
+
+```{=latex}
+\newlength{\dayw}
+\setlength{\dayw}{\dimexpr(\textwidth-1cm-12\tabcolsep-7\arrayrulewidth)/5\relax}
+
+\newcolumntype{L}{>{\centering\arraybackslash\bfseries\footnotesize}m{1cm}}
+\newcolumntype{D}{>{\centering\arraybackslash\footnotesize}m{\dayw}}
+
+% right-aligned small date inside a centred cell
+\newcommand{\dt}[1]{{\raggedleft\scriptsize #1\par}}
+% second line of a day cell (tutorial / quiz / exam marker)
+\newcommand{\ev}[1]{\newline\smallskip{\itshape\scriptsize #1}}
+% symmetric row-height struts (keep the week label vertically centred)
+\newcommand{\hA}{\rule[-0.55cm]{0pt}{1.15cm}}
+\newcommand{\hB}{\rule[-0.75cm]{0pt}{1.55cm}}
+
+\newcommand{\caltitle}{%
+  \vspace*{-10pt}%
+  {\centering\large\bfseries Introduction to Python for Finance\par}%
+  \vspace{2pt}%
+  {\centering\normalsize Master in Finance Full-Time 2022\par}%
+  \vspace{6pt}}
+```
+
+```{=latex}
+\caltitle
+
+\noindent\begin{tabular}{|L|D|D|D|D|D|}
+\hline
+\rowcolor{gray!20}
+ & \textbf{Monday} & \textbf{Tuesday} & \textbf{Wednesday} & \textbf{Thursday} & \textbf{Friday} \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{7 Mar} & \dt{8 Mar} & \dt{9 Mar} & \dt{10 Mar} & \dt{11 Mar} \\
+S1 \hA & Meet the Toolkit: Anaconda \& Google Colab & Hello Python! & & Variables, Naming Conventions \& Data Types & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{14 Mar} & \dt{15 Mar} & \dt{16 Mar} & \dt{17 Mar} & \dt{18 Mar} \\
+S2 \hA & & Data Structure and Sequences & & Control Flow Statements\ev{Tutorial 1} & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{21 Mar} & \dt{22 Mar} & \dt{23 Mar} & \dt{24 Mar} & \dt{25 Mar} \\
+S3 \hA & & Comprehension and Functions & & Lambda Functions \& Import Libraries\ev{Tutorial 2} & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{28 Mar} & \dt{29 Mar} & \dt{30 Mar} & \dt{31 Mar} & \dt{1 Apr} \\
+S4 \hA & & Introduction to Numpy & & Capital Asset Pricing Model I\ev{Quiz 1} & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{4 Apr} & \dt{5 Apr} & \dt{6 Apr} & \dt{7 Apr} & \dt{8 Apr} \\
+S5 \hA & {\itshape Homework 1} & Capital Asset Pricing Model II & & Introduction to Data Analysis w/ Pandas I\ev{Tutorial 3} & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{11 Apr} & \dt{12 Apr} & \dt{13 Apr} & \dt{14 Apr} & \dt{15 Apr} \\
+S6 \hA & & Introduction to Data Analysis w/ Pandas II & & Stock Data Using Yahoo Finance API\ev{Tutorial 4} & {\itshape Holiday} \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{18 Apr} & \dt{19 Apr} & \dt{20 Apr} & \dt{21 Apr} & \dt{22 Apr} \\
+S7 \hA & & Technical Indicators w/ TA-Lib & & Introduction to DataViz: Matplotlib and Seaborn\ev{Quiz 2} & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{25 Apr} & \dt{26 Apr} & \dt{27 Apr} & \dt{28 Apr} & \dt{29 Apr} \\
+S8 \hA & {\itshape Homework 2} & Introduction to DataViz: Plotly & \multicolumn{3}{c|}{\footnotesize Midterm Exam Preparation} \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{2 May} & \dt{3 May} & \dt{4 May} & \dt{5 May} & \dt{6 May} \\
+ \hA & \multicolumn{5}{c|}{\footnotesize Midterm Exams} \\
+\hline
+\end{tabular}
+
+\clearpage
+
+\caltitle
+
+\noindent\begin{tabular}{|L|D|D|D|D|D|}
+\hline
+\rowcolor{gray!20}
+ & \textbf{Monday} & \textbf{Tuesday} & \textbf{Wednesday} & \textbf{Thursday} & \textbf{Friday} \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{9 May} & \dt{10 May} & \dt{11 May} & \dt{12 May} & \dt{13 May} \\
+S9 \hB & & Midterm Exams & & Monte Carlo Simulation and Bootstrapping\ev{Tutorial 5} & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{16 May} & \dt{17 May} & \dt{18 May} & \dt{19 May} & \dt{20 May} \\
+S10 \hB & & Time Series Analysis I & & Time Series Analysis II\ev{Tutorial 6} & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{23 May} & \dt{24 May} & \dt{25 May} & \dt{26 May} & \dt{27 May} \\
+S11 \hB & & Introduction to Machine Learning I & & Introduction to Machine Learning II\ev{Quiz 3} & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{30 May} & \dt{31 May} & \dt{1 Jun} & \dt{2 Jun} & \dt{3 Jun} \\
+S12 \hB & {\itshape Homework 3} & Geospatial Data w/ GeoPandas & & Interactive Dashboards using Dash: Introduction\ev{Tutorial 7} & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{6 Jun} & \dt{7 Jun} & \dt{8 Jun} & \dt{9 Jun} & \dt{10 Jun} \\
+S13 \hB & & Interactive Dashboards using Dash: Components & & Interactive Dashboards using Dash: Callbacks\ev{Quiz 4} & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{13 Jun} & \dt{14 Jun} & \dt{15 Jun} & \dt{16 Jun} & \dt{17 Jun} \\
+S14 \hB & & Interactive Dashboards using Dash: Deployment & & Final Exam* & \\
+\hline
+
+\rowcolor{gray!8}
+ & \dt{20 Jun} & \dt{21 Jun} & \dt{22 Jun} & \dt{23 Jun} & \dt{24 Jun} \\
+S15 \hB & {\itshape Homework 4} & {\itshape Holiday} & & & \\
+\hline
+\end{tabular}
+
+\vspace{6pt}
+
+\noindent{\footnotesize * Does not include the topic Interactive Dashboards using Dash.}
+```

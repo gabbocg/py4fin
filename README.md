@@ -1,5 +1,25 @@
 # Introduction to Python for Finance
 
+> ### 🌐 Translation Disclaimer
+>
+> This course was originally written and taught in **Spanish** as *"Introducción a Python para las
+> Finanzas"* (ENGIN 604, Magíster en Finanzas Full-Time, Universidad de Chile). This version is a
+> complete **English translation** of that original material.
+>
+> The translation covers the lecture notes, notebooks, scripts, slides, syllabus, homework policies,
+> assignments and the final exam — including code comments, printed strings, variable and function
+> names, and file names. Course content, exercises, data and numerical results are unchanged from the
+> Spanish original.
+>
+> A few notes:
+> - The homework and final-exam `.Rmd` sources were **reconstructed from the compiled Spanish PDFs**,
+>   as the originals were no longer available. Their mathematical formulas were re-typeset in LaTeX.
+> - Proper nouns (the university, instructor and teaching assistant names) and cited bibliographic
+>   titles are intentionally left in their original form.
+> - The Spanish version remains available in this repository's history on the `main` branch.
+>
+> If you spot a translation error or an awkward phrasing, please open an issue.
+
 ## Course Description
 
 Created in 1991 by Guido van Rossum, Python has become one of the favorite programming languages in
