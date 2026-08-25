@@ -245,10 +245,3 @@ date given in each assignment handout; the full submission rules are in
      grade. -->
 
 TBD.
-
-## Accessibility and Accommodations
-
-<!-- TODO: name the office that registers accommodations, give its contact
-     details, and say how far in advance the paperwork is needed. -->
-
-TBD.
