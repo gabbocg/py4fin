@@ -1,0 +1,359 @@
+---
+header-includes:
+  - \usepackage[english]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introduction to Python for Finance
+author: "Variables, Conventions & Data Types - Solution"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Thursday, March 11"
+# submit: "engin604assignments@gmail.com"
+# page: "5 pages"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output:
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "Latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](Latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1bdEjbKr75GgN5ahAm7EDHmOUbIferkoc?usp=sharing)
+
+# Variables
+
+A variable in Python is a space in your computer's RAM where you can store results and objects.
+To create a variable we use an "assignment", that is, an expression with an equality. What is to the left of the equals sign will be the name of the variable where the value is stored, and what is to the right of the equals sign is the value to be stored (*Aplicaciones de Manejo de Datos, 2020*).
+
+For example, let's create the variable `phone_number` and store the value `12345678` in it:
+
+```{python}
+phone_number = 12345678 # the symbol = is the assignment operator
+phone_number
+```
+
+In python it is not necessary to end a line of code with ; (semicolons), but they do serve a purpose:
+
+```{python}
+a = 1; b = 2; c = 3
+```
+
+You can also assign values to several variables in a single line of code:
+
+```{python}
+a, b, c = 1, 2, 3
+```
+
+# Conventions
+
+1. There are reserved variable names that must not be used because they are reserved by Python:
+
+    ```{python, eval=FALSE}
+    # library
+    import keyword
+
+    # reserved keywords
+    keyword.kwlist
+    ```
+
+2. Single-line comments are written with #.
+
+    ```{python, eval=FALSE}
+    # this is a single-line comment
+    ```
+
+3. Multi-line comments start with ''' and end with '''.
+
+    ```{python, eval=FALSE}
+    """
+    this is
+    a
+    multi-line
+    comment
+    """
+    ```
+
+\newpage
+# Data Types (scalars)
+
+There are four data types or scalars: numeric (**integers** and **floats**),   **strings** (text strings) and **booleans** (True & False).
+
+```{python, eval=FALSE}
+'''Basic data types'''
+# integers
+integer = 2
+type(integer) # identification
+isinstance(integer, int)  # identification
+
+# float
+floating = 3.14
+type(floating)
+isinstance(floating, float)
+
+# string
+string = "hello world"
+type(string)
+isinstance(string, str)
+
+# boolean
+boolean = True
+type(boolean)
+isinstance(boolean, bool)
+
+'''casting'''
+# integers
+int('1')
+int(True)
+int(False)
+
+# float
+float('1')
+float(True)
+float(False)
+
+# string
+str(1)
+str(True)
+str(False)
+
+# boolean
+bool(1)
+bool(0)
+```
+
+1. What are the data types in Python? How can I identify them and convert them into other data types?
+
+## Numeric Expressions
+
+1. What numeric operations can I apply?
+
+    ```{python}
+    a = 4
+    b = 3
+
+    a + b # addition
+    ```
+
+
+    ```{python}
+    a - b # subtraction
+
+    a * b # multiplication
+
+    a / b # division
+
+    a % b # modulo
+
+    a // b # integer part
+
+    a ** b # power
+    ```
+
+2. What is the result of:
+
+    $$
+    1+2^3/4 \times 5
+    $$
+
+    ```{python}
+    1 + 2 ** 3 / 4 * 5
+    ```
+
+3. Compute the present value of a cash flow of $\$1000$ over a total of 5 periods. Assume a discount rate of $10\%$. The present value (PV) is equal to:
+
+    $$
+    PV = \sum^{T}_{t=0} \frac{F_t}{(1+r)^t}
+    $$
+
+    ```{python}
+    present_value = 1000 / (1 + 0.1) ** 1 +  1000 / (1 + 0.1) ** 2 + 1000 / (1 + 0.1) ** 3
+    present_value += 1000 / (1 + 0.1) ** 4 + 1000 / (1 + 0.1) ** 5
+    print('The present value is: ' + str(present_value))
+    ```
+
+## Strings
+
+1. Given the following text: "*There are some things money can't buy, for everything else there's mastercard*". Answer the following:
+
+    a. How many characters does the text contain?
+
+        ```{python}
+        text = "There are some things money can't buy, for everything else there's mastercard"
+        len(text)
+
+        text[0] # first character
+
+        text[0:5]  # first 5 characters
+
+        text[-1] # last character
+        ```
+
+    b. How many times does the letter r appear? How many times does the letter r appear after the ","?
+
+        ```{python}
+        text.count('r')
+        text.count('r', text.find(','))
+        ```
+
+    c. What position is "mastercard" at?
+
+        ```{python}
+        text.find('mastercard')
+        ```
+
+    d. Replace "mastercard" with "Mastercard".
+
+        ```{python}
+        text.replace('mastercard', 'Mastercard')
+        ```
+
+
+2. Write your full name in lowercase, preserving the spaces.
+
+    a. Print your full name to the screen in uppercase. (e.g. GUIDO VON ROSSUM)
+
+        ```{python}
+        lower_name = "guido von rossum"
+        lower_name.upper()
+        ```
+
+    b. Print your full name to the screen with only the first letters in uppercase. (e.g. Guido Von Rossum)
+
+        ```{python}
+        lower_name.title()
+        ```
+
+3. Apply the following format^[https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting] to the text: '2.45535 dollars is equivalent to $CLP1808.12'
+
+    a. From '2.45535' to 2.45 (two decimal places)
+
+    b. 'dollars' as text
+
+    c. From '1808.12' to 1808 (integer)
+
+        ```{python}
+        template = '{0:.2f} {1:s} is equivalent to $CLP{2:d}'
+        template.format(2.45535, 'dollars', 1808)
+        ```
+
+4. What is '2' + '25'?
+
+    ```{python}
+    '2' + '25' # concatenation, both must be str()
+    ```
+
+\newpage
+## Boolean Logic
+
+1. What logical operations can I apply?
+
+    Comparison operators:
+
+    ```{python}
+    a = 4
+    b = 3
+
+    a > b # greater than
+
+    a < b # less than
+
+    a == b # equal to
+
+    a != b  # not equal to
+
+    a >= b  # greater than or equal to
+
+    a <= b  # less than or equal to
+    ```
+
+    logical operators:
+
+    ```{python}
+    x = True
+    y = False
+
+    x and y # True and False = False
+
+    x or y # True or False = True
+
+    not x # not True = False
+    ```
+
+2. Given the following text: "*There are some things money can't buy, for everything else there's mastercard*". Answer the following:
+
+    a. Is the letter 'z' present?
+
+        ```{python}
+        text = "There are some things money can't buy, for everything else there's mastercard"
+        'z' in text
+        ```
+
+    b. Is the letter 'm' present?
+
+        ```{python}
+        'm' in text
+        ```
+
+    c. Is the word 'visa' present?
+
+        ```{python}
+        'visa' in text
+        ```
+
+3. Show that De Morgan's law holds.
+
+    ```{python}
+    A = True
+    B = False
+
+    not(A and B) == (not(A) or not(B))
+    ```
+
+    ```{python}
+    A = False
+    B = True
+
+    not(A and B) == (not(A) or not(B))
+    ```
+
+    ```{python}
+    A = True
+    B = True
+
+    not(A and B) == (not(A) or not(B))
+    ```
+
+    ```{python}
+    A = False
+    B = False
+
+    not(A and B) == (not(A) or not(B))
+    ```
+
+# Appendix
+
+Table: De Morgan's Law
+
+| A     | B     | A and B | not(A and B)      | not A or not B                  |
+|-------|-------|---------|-------------------|---------------------------------|
+| True  | False | False   | not(False) = True | not(True) or not(False) = True  |
+| False | True  | False   | not(False) = True | not(False) or not(True) = True  |
+| True  | True  | True    | not(True) = False | not(True) or not(True) = False  |
+| False | False | False   | not(False) = True | not(False) or not(False) = True |

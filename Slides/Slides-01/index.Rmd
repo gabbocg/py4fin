@@ -1,7 +1,7 @@
 ---
 title: "&gt; Hello Python!"
-author: "Gabriel E. Cabrera, M.Sc.<br><span style = 'font-size: 50%;'>Universidad de Chile<br>Magister en Finanzas - Full Time</span>"
-date: 'Otoño 2022<br><br>`r icons::icon_style(icons::fontawesome("link", style = "solid"), scale = 1, fill = "white")` [bit.ly/3KkcvAV](https://py4fin-slide-01.netlify.app)<br>`r icons::icon_style(icons::fontawesome("twitter", style = "brands"), scale = 1, fill = "white")` [GabboCg](https://twitter.com/gabbocg)'
+author: "Gabriel E. Cabrera, M.Sc.<br><span style = 'font-size: 50%;'>Universidad de Chile<br>Master in Finance – Full Time</span>"
+date: 'Fall 2022<br><br>`r icons::icon_style(icons::fontawesome("link", style = "solid"), scale = 1, fill = "white")` [bit.ly/3KkcvAV](https://py4fin-slide-01.netlify.app)<br>`r icons::icon_style(icons::fontawesome("twitter", style = "brands"), scale = 1, fill = "white")` [GabboCg](https://twitter.com/gabbocg)'
 output:
   xaringan::moon_reader:
     chakra: libs/remark-latest.min.js
@@ -18,7 +18,7 @@ output:
 
 layout: true
   
-<div class="my-footer"><span><small>Introducción a Python para las Finanzas • @GabboCg</small></span></div> 
+<div class="my-footer"><span><small>Introduction to Python for Finance • @GabboCg</small></span></div> 
 
 ---
 
@@ -60,7 +60,7 @@ class: inverse, center, middle
 
 ---
 
-# ¿Quién soy?
+# Who am I?
 
 <div align='center'>
   <img style="border-radius: 50%; border:3px solid #ffffff;" src="https://avatars1.githubusercontent.com/u/35644280?s=400&u=67a633cb4550ad26715625df4b09ecc580677441&v=4" width="150px"/>
@@ -78,61 +78,61 @@ class: inverse, center, middle
 
 <i class="fab fa-github"></i> &nbsp; [github/GabboCg](https://github.com/GabboCg) <br>
 
-<i class="fa fa-calendar"></i> &nbsp; Dudas vía correo electrónico o después de clases.
+<i class="fa fa-calendar"></i> &nbsp; Questions by email or after class.
 
 ---
-# ¿Sobre qué es este curso?
+# What is this course about?
 
-* ¿Programaremos?
+* Will we be programming?
 
-* ¿Es un curso introductorio de CS (*Computer Science*)?
+* Is this an introductory CS (*Computer Science*) course?
 
-* ¿Necesito saber conceptos básicos de finanzas?
+* Do I need to know basic finance concepts?
 
-* ¿Qué lenguaje de programación aprenderemos?
+* Which programming language will we learn?
 
-* ¿Por qué no el lenguaje X?
+* Why not language X?
 
 ---
 class: inverse, center, middle
 
-# Estructura del curso & políticas
+# Course structure & policies
 
 ---
-# Clases
+# Classes
 
-<i class="fas fa-university fa-lg"></i> &nbsp; Híbrido = TecnoAulas H-101 + Zoom (online) </br> 
+<i class="fas fa-university fa-lg"></i> &nbsp; Hybrid = TecnoAulas H-101 + Zoom (online) </br>
 
-<i class="fas fa-calendar-alt fa-lg"></i> &nbsp; Mar & Jue 9:30 - 10:50 + Ayudatía Jue 14:00 - 15:20 </br> 
+<i class="fas fa-calendar-alt fa-lg"></i> &nbsp; Tue & Thu 9:30 - 10:50 + Teaching Assistant Session Thu 14:00 - 15:20 </br>
 
-* [<i class="fas fa-download"></i>](files/Calendario.pdf) Calendario (Docencia Web/Canvas).
+* [<i class="fas fa-download"></i>](files/calendar.pdf) Calendar (Docencia Web/Canvas).
 
 * Slides
 
-* Material
+* Course Material
 
-    * Scripts (Código) 
-    
-    * Enunciado 
-    
-        * Explicaciones + Preguntas
-        
-        * Link a Google Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb)
+    * Scripts (Code)
 
-* Repositorio: [![Open Source? Yes!](https://badgen.net/badge/Github/Open/blue?icon=github)](https://github.com/GabboCg/py4fin) 
+    * Assignment Handout
+
+        * Explanations + Questions
+
+        * Link to Google Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb)
+
+* Repository: [![Open Source? Yes!](https://badgen.net/badge/Github/Open/blue?icon=github)](https://github.com/GabboCg/py4fin) 
 [![GitHub forks](https://img.shields.io/github/forks/GabboCg/py4fin?style=social)](https://github.com/GabboCg/py4fin/network/) [![GitHub watchers](https://img.shields.io/github/watchers/GabboCg/py4fin?style=social)](https://github.com/GabboCg/py4fin/watchers/)
 
 ---
 
-# Compartir y/o reusar código
+# Sharing and/or reusing code
 
-1. Estoy consiente de que existe un alto volumen de código disponible en la *web* para resolver muchos problemas.
+1. I am aware that there is a large amount of code available on the *web* to solve many problems.
 
-2. Pueden usar recursos online (e.g. StackOverflow) pero deben citar correctamente, incluso si lo usan como inspiración.
+2. You may use online resources (e.g. StackOverflow) but you must cite them properly, even if you only use them as inspiration.
 
-3. Si se descubre que el código es reciclado  y no está explicitamente citado, será tratado como plagio.
+3. If code is found to be recycled and is not explicitly cited, it will be treated as plagiarism.
 
-4. En las evaluaciones (tareas, controles y examen) está prohibido compartir código.
+4. Sharing code is forbidden in all graded work (homework, quizzes and the final exam).
 
 <br>
 
@@ -144,23 +144,23 @@ class: inverse, center, middle
 
 ---
 
-# Evaluaciones
+# Grading
 
-* **Tareas:** Máximo dos integrantes por tareas. Ideal que sean los mismos durante el semestre.
+* **Homework:** Maximum 2 members per group. Ideally the same group throughout the semester.
 
-* **Controles:** Serán **presenciales** los días jueves en horario de ayudantía. De caracter individual.
+* **Quizzes:** They will be held **in person** on Thursdays during the teaching assistant session. Individual work.
 
-* **Examen:** De caracter individual e Incluye todo lo visto en el curso. Se realizará presencial el último día de clases.
+* **Final Exam:** Individual work and covers everything seen in the course. It will be held in person on the last day of class.
 
-| Componente    | Ponderación |
+| Component     | Weight      |
 |---------------|:-----------:|
-| Tareas (4)    |  40%        |
-| Controles (4) |  35%        |
-| Examen        |  25%        |
+| Homework (4)  |  40%        |
+| Quizzes (4)   |  35%        |
+| Final Exam    |  25%        |
 
-* [<i class="fas fa-download"></i>](files/Politicas-Tareas.pdf) Política de entregas (Docencia Web/Canvas).
+* [<i class="fas fa-download"></i>](files/homework-policies.pdf) Submission policy (Docencia Web/Canvas).
 
-* Asistencia mínima del 60% presencial en sala.
+* Minimum 60% in-person attendance in the classroom.
 
 ---
 class: inverse, center, middle
@@ -169,46 +169,46 @@ class: inverse, center, middle
 
 ---
 
-# Fechas tentativas
+# Tentative dates
 
 .pull-left[
 
-* Todas las fechas son lunes:
+* All dates are Mondays:
 
-| Evaluación | Fecha        | Entrega      |
+| Assessment | Date         | Due          |
 |------------|--------------|--------------|
-| Tarea 1    | 21 de Marzo  |  4 de Abril  |
-| Tarea 2    | 11 de Abril  |  25 de Abril |
-| Tarea 3    | 16 de Mayo   |  30 de Mayo  |
-| Tarea 4    | 23 de Mayo   |  20 de Junio |
+| Homework 1 | March 21     |  April 4     |
+| Homework 2 | April 11     |  April 25    |
+| Homework 3 | May 16       |  May 30      |
+| Homework 4 | May 23       |  June 20     |
 
 ]
 
 .pull-right[
 
-* Todas las fechas son jueves:
+* All dates are Thursdays:
 
-| Evaluación | Fecha              |
+| Assessment | Date               |
 |------------|--------------------|
-| Control 1  | 31 de Marzo |
-| Control 2  | 21 de Abril |
-| Control 3  | 26 de Mayo  |
-| Control 4  | 9 de Junio  |
+| Quiz 1     | March 31    |
+| Quiz 2     | April 21    |
+| Quiz 3     | May 26      |
+| Quiz 4     | June 9      |
 
 ]
 
 </br>
 
-* Ultimo día de clases: 16 de junio
+* Last day of class: June 16
 
-| Evaluación | Fecha          |
+| Assessment | Date           |
 |------------|----------------|
-| Examen     | 22 de Abril    |
+| Final Exam | April 22       |
 
 ---
 class: inverse, center, middle
 
-# ¿Qué programas utilizaremos?
+# Which software will we use?
 
 ---
 # Anaconda = Spyder + Python 
@@ -243,7 +243,7 @@ src="https://www.youtube.com/embed/PZEHvgx06FE">
 ---
 class: inverse, center, middle
 
-# ¿Por qué Python `r emo::ji("snake")`?
+# Why Python `r emo::ji("snake")`?
 
 ---
 # Python Vs C++ Vs Java
@@ -281,21 +281,21 @@ background-image: url(images/stars-bg.jpg)
 <br>
 <div style="text-align: left; padding-top: 120px">
 <span style="color: #4ee; font-size: 250%;">
-Hace poco, poco tiempo, <br>
-en una galaxia no tan,<br> tan lejana...
+Not long, long ago, <br>
+in a galaxy not so,<br> so far away...
 </div>
 </span>
 
 ---
 class: middle
 
-# <small><small> Exactamente en la decada de los 90, </small></small> <br> <small><small> cuando </small></small> Guido van Rossum </small></small>  <small><small> creo </small></small>...</small></small> <br>  Python... <br> <small><small> inspirado en el grupo de cómicos ingleses ...</small></small>  Monty Python.
+# <small><small> Exactly in the 1990s, </small></small> <br> <small><small> when </small></small> Guido van Rossum </small></small>  <small><small> created </small></small>...</small></small> <br>  Python... <br> <small><small> inspired by the English comedy group ...</small></small>  Monty Python.
 
 ---
 background-image: url(images/guido-van-rossum.jpg)
 
 ---
-## Lenguajes más utilizados 
+## Most used languages
 
 ```{r, echo = FALSE, eval = TRUE, warning=FALSE, message=FALSE, out.width="100%"}
 if(!require("pacman")) install.packages("pacman")
@@ -316,7 +316,7 @@ lang_use <- kaggle_survey %>%
 
 hc1 <- lang_use %>% 
   mutate(pct = round(pct, 2)) %>% 
-  hchart("column", hcaes(x = lang, y = pct), name = "Lenguaje", color = "rgb(247,163,92)") %>%
+  hchart("column", hcaes(x = lang, y = pct), name = "Language", color = "rgb(247,163,92)") %>%
   hc_yAxis(title = list(text = ""), labels = list(format = "{value}%")) %>%
   hc_xAxis(title = list(text = "")) %>%
   hc_credits(enabled = TRUE, text = "2020 Kaggle Machine Learning & Data Science Survey") %>%
@@ -326,7 +326,7 @@ hc1
 ```
 
 ---
-## ¿Qué lenguajes recomendarias? 
+## Which languages would you recommend?
 
 ```{r, echo = FALSE, eval = TRUE, warning=FALSE, message=FALSE, out.width="100%"}
 lang_recom <- kaggle_survey %>% 
@@ -344,7 +344,7 @@ lang_recom <- kaggle_survey %>%
 
 hc2 <- lang_recom %>% 
   mutate(pct = round(pct, 2)) %>% 
-  hchart("column", hcaes(x = lang, y = pct), name = "Lenguaje", color = "rgb(247,163,92)") %>%
+  hchart("column", hcaes(x = lang, y = pct), name = "Language", color = "rgb(247,163,92)") %>%
   hc_yAxis(title = list(text = ""), labels = list(format = "{value}%")) %>%
   hc_xAxis(title = list(text = "")) %>%
   hc_credits(enabled = TRUE, text = "2020 Kaggle Machine Learning & Data Science Survey") %>%
@@ -354,7 +354,7 @@ hc2
 ```
 
 ---
-## ¿Qué lenguajes utilizas habitualmente? 
+## Which languages do you use regularly?
 
 ```{r, eval=TRUE, out.width="100%"}
 lang_use_per_role <- kaggle_survey %>% 
@@ -380,7 +380,7 @@ hc3
 ```
 
 ---
-## ¿Qué IDE utilizas habitualmente? 
+## Which IDE do you use regularly?
 
 ```{r, eval=TRUE, out.width="100%"}
 ide_use_per_role <- kaggle_survey %>% 
@@ -408,7 +408,7 @@ hc4
 ---
 class: center, inverse, middle
 
-# Nunca olviden que ...
+# Never forget that ...
 
 ---
 background-image: url(images/adi-goldstein-mDinBvq1Sfg-unsplash.jpg)
@@ -417,16 +417,16 @@ background-size: cover
 ---
 class: center, middle, inverse
 
-# Muchas Gracias
+# Thank You Very Much
 
-El tema del slides fue basado en [Jennifer L Thompson](https://jenthompson.me/resources/) & [mine çetinkaya](https://www2.stat.duke.edu/~mc301/).
+The slide theme was based on [Jennifer L Thompson](https://jenthompson.me/resources/) & [mine çetinkaya](https://www2.stat.duke.edu/~mc301/).
 
-Slides creadas vía el paquete de R [xaringan](https://github.com/yihui/xaringan).
+Slides created via the R package [xaringan](https://github.com/yihui/xaringan).
 
-Los chakras provienen de [remark.js](https://remarkjs.com), [knitr](http://yihui.name/knitr), y [R Markdown](https://rmarkdown.rstudio.com).
+The chakras come from [remark.js](https://remarkjs.com), [knitr](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
 
-Este trabajo está licenciado con Creative Commons Attribution- ShareAlike 4.0 International License. 
+This work is licensed under a Creative Commons Attribution- ShareAlike 4.0 International License.
 
-Para ver una copia de está licencia, visite:
+To view a copy of this license, visit:
 
 https://creativecommons.org/licenses/by-sa/4.0/

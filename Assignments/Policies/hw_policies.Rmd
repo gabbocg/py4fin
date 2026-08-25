@@ -1,8 +1,8 @@
 ---
 title: |
   ![](latex/logo_uchile.png){width=0.45in}   
-  ENGIN 604 Introducción a Python para las Finanzas - Otoño 2021 
-author: "Políticas de las Tarea"
+  ENGIN 604 Introduction to Python for Finance - Fall 2021 
+author: "Homework Policies"
 # bibliography: "latex/references.bib"
 #biblio-style: "acm"
 link-citations: yes
@@ -30,32 +30,32 @@ knitr::opts_chunk$set(echo = TRUE)
 
 \vspace{-10pt}
 
-# Políticas {-}
+# Policies {-}
 
-* No se permiten días de atraso y extensiones.
+* No late days or extensions are allowed.
 
-* Cada tarea puede ser desarrollado en grupos de máximo 2 integrantes.
+* Each homework assignment may be completed in groups of maximum 2 members per group.
 
-* Cada tarea contribuye de igual forma a la ponderación correspondiente a las tareas (70%).
+* Each homework assignment contributes equally to the weight corresponding to homework (70%).
 
-* Se debe entregar un archivo con extensión PDF o Jupyter Notebook (.ipynb). 
+* You must submit a file in PDF format or a Jupyter Notebook (.ipynb). 
 
-* En conjunto con el archivo PDF se debe adjuntar^[Si utiliza Jupyter Notebook (.ipynb) no es necesario enviar un script (.py).] un *script* de Python (.py) y enviarlo via email a engin604assignments@gmail.com. 
+* Together with the PDF file you must attach^[If you use a Jupyter Notebook (.ipynb) it is not necessary to send a script (.py).] a Python *script* (.py) and email it to engin604assignments@gmail.com. 
 
-    El nombre del archivo PDF o Jupyter Notebook (.ipynb) debe ser \textcolor{red}{\faExclamationTriangle}: 
+    The name of the PDF file or Jupyter Notebook (.ipynb) must be \textcolor{red}{\faExclamationTriangle}: 
 
-    * [apellido-alumno-1]-[apellido-alumno-2]-tarea[número].pdf; por ejemplo, en la solución del tarea 3 debería llamar a su archivo como **cabrera-denbraber-tarea3.pdf** o **cabrera-denbraber-tarea3.ipynb**
+    * [last-name-student-1]-[last-name-student-2]-homework[number].pdf; for example, for the solution to homework 3 you should name your file **cabrera-denbraber-homework3.pdf** or **cabrera-denbraber-homework3.ipynb**
     
-    El nombre del script debe ser \textcolor{red}{\faExclamationTriangle}: 
+    The name of the script must be \textcolor{red}{\faExclamationTriangle}: 
 
-    * [apellido-alumno-1]-[apellido-alumno-2]-tarea[número].py;  por ejemplo, en la solución del tarea 3 debería llamar a su archivo como **cabrera-denbraber-tarea3.py** 
+    * [last-name-student-1]-[last-name-student-2]-homework[number].py;  for example, for the solution to homework 3 you should name your file **cabrera-denbraber-homework3.py** 
     
-    El asunto del correo debe ser \textcolor{red}{\faExclamationTriangle}: 
+    The subject of the email must be \textcolor{red}{\faExclamationTriangle}: 
     
-    * [apellido-alumno-1]-[apellido-alumno-2]-tarea[número];  por ejemplo, en la solución del tarea 3 debería llamar al asunto del correo como **cabrera-denbraber-tarea3**
+    * [last-name-student-1]-[last-name-student-2]-homework[number];  for example, for the solution to homework 3 you should name the email subject **cabrera-denbraber-homework3**
     
-* Las tareas se debe entregar antes de las 11:59pm de la fecha de entrega señalado en el enunciado.
+* Homework must be submitted before 11:59pm on the due date indicated in the assignment statement.
 
-* Cualquier fuente externa (*papers*, libros, clases, etc) utilizada debe ser referenciada (no es considerado en el máximo de páginas señalado en el enunciado).
+* Any external source (*papers*, books, lectures, etc) used must be referenced (it does not count toward the maximum number of pages indicated in the assignment statement).
 
-* Todo lo anterior también aplica para aquellos o aquellas que deseen realizar las tareas de manera individual.
+* All of the above also applies to those who wish to complete the homework individually.

@@ -1,7 +1,7 @@
 ---
-title: "Introducción a Python para las Finanzas"
+title: "Introduction to Python for Finance"
 author: "Gabriel Cabrera G."
-date: "Otoño 2021"
+date: "Fall 2021"
 output:
   pdf_document:
     keep_tex: no
@@ -49,41 +49,41 @@ bib <- ReadBib("Latex/bibliography.bib")
 myopts <- BibOptions(bib.style = "authoryear", style = "latex", first.inits = FALSE, max.names = 20)
 ```
 
-# Descripción del Curso
+# Course Description
 
-Creado en 1991 por Guido van Rossum, Python sea ha vuelto uno de los lenguajes de programación favorito tanto en la academia como en la industria, esto se debe a su simple sintaxis y extensas (poderosas) librerías. El curso busca entregar las herramientas básicas para enfrentar problemas financieros y/o económicos. Entre los tópicos a discutir se encuentran: estructura de datos, control de flujo condicional, funciones, introducción a la librería NumPy, manipulación de datos con Pandas y series de tiempo.
+Created in 1991 by Guido van Rossum, Python has become one of the favorite programming languages both in academia and in industry, thanks to its simple syntax and extensive (powerful) libraries. The course seeks to provide the basic tools to tackle financial and/or economic problems. Among the topics to be discussed are: data structures, conditional control flow, functions, an introduction to the NumPy library, data manipulation with Pandas and time series.
 
-# Objetivos
+# Objectives
 
-1. Entender la sintaxis y ambiente de programación de Python
+1. Understand Python's syntax and programming environment
 
-2. Familiarización con los distintos tipos y estructuras de datos
+2. Become familiar with the different data types and data structures
 
-3. Manipulación de base de datos estructuradas utilizando Pandas
+3. Manipulate structured datasets using Pandas
 
-4. Creación de funciones propias para resolver problemas reales
+4. Create your own functions to solve real-world problems
 
-5. Presentación de resultados utilizando Jupyter Notebooks
+5. Present results using Jupyter Notebooks
 
-# Evaluaciones
+# Grading
 
-La nota final estará ponderada de la siguiente manera:
+The final grade will be weighted as follows:
 
-* Tareas: 70% (máximo 2 integrantes)
+* Homework: 70% (maximum 2 members per group)
 
-* Examen: 30% (incluye todo la materia del curso)
+* Final Exam: 30% (covers all the course material)
 
-# Métodología
+# Methodology
 
-El curso se desarrollará a través de clases expositivas y ejercicios prácticos utilizando Python.
+The course will be taught through lectures and hands-on exercises using Python.
 
-# Contenidos
+# Contents
 
-1. Introducción
+1. Introduction
 
-    a. Instalación y Setup de Anaconda (IDEs)
+    a. Installation and Setup of Anaconda (IDEs)
     
-    b. El Interpretador de Python
+    b. The Python Interpreter
     
     c. IPython Shell
     
@@ -91,89 +91,89 @@ El curso se desarrollará a través de clases expositivas y ejercicios práctico
   
     e. Google Colaboratory
   
-2. Estructura de Datos & Secuencias
+2. Data Structures & Sequences
 
-    a. Tupla (tuple)
+    a. Tuple (tuple)
     
-    b. Lista (list)
+    b. List (list)
     
-    c. Diccionario (dict)
+    c. Dictionary (dict)
     
-    d. Conjunto (set)
+    d. Set (set)
     
-3. Control de Flujo Condicional
+3. Conditional Control Flow
 
-    a. Ciclos (loops) `for` y `while` 
+    a. `for` and `while` Loops 
     
-    b. `if`, `elif` y `else`
+    b. `if`, `elif` and `else`
     
-    c. Operadores Lógicos
+    c. Logical Operators
     
-    d. Operadores Matemáticos 
+    d. Mathematical Operators 
     
-    e. Comprehension de Lista, Conjunto y Diccionario 
+    e. List, Set and Dictionary Comprehension 
 
-4. Funciones
+4. Functions
     
-    a. Creación e Importación 
+    a. Creating and Importing 
     
-    b. Módulo Itertools 
+    b. Itertools Module 
     
-    c. Funciones Anónimas (Lambda) 
+    c. Anonymous Functions (Lambda) 
     
-    d. Manejo de errores y excepciones
+    d. Error and Exception Handling
     
-    e. Importación de Librerías 
+    e. Importing Libraries 
     
-    f. Ejemplo: Precio Bono Bullet
+    f. Example: Bullet Bond Price
   
-5. Introducción a NumPy
+5. Introduction to NumPy
 
-    a. Array, Matriz y ndarray
+    a. Array, Matrix and ndarray
   
-    b. Concatenación, Separación y Subconjunto 
+    b. Concatenation, Splitting and Subsetting 
     
-    c. Computación en Arrays: Broadcasting
+    c. Array Computation: Broadcasting
     
-    d. Funciones de Algebra Lineal
+    d. Linear Algebra Functions
     
-    e. Ejemplo: Regresión Lineal 
+    e. Example: Linear Regression 
     
-    f. Ejemplo: *Random Walk*
+    f. Example: *Random Walk*
 
-6. Manipulación de Datos con Pandas
+6. Data Manipulation with Pandas
 
-    a. DataFrame, Series e Index Object
+    a. DataFrame, Series and Index Object
     
-    b. Funciones Esenciales para Estructura de Datos en Pandas
+    b. Essential Functions for Pandas Data Structures
     
-    c. Tratamiento de *Missing Values* y *Null Values* 
+    c. Handling *Missing Values* and *Null Values* 
     
-    d. Transformación de variables
+    d. Variable Transformation
     
-    e. Agregación de Datos y Operaciones de Agrupación
+    e. Data Aggregation and Group Operations
   
-    g. Combinación de Bases de Datos: Concat, Append, Merge y Join
+    g. Combining Datasets: Concat, Append, Merge and Join
 
-    h. Reshape y Pivot 
+    h. Reshape and Pivot 
 
-    i. Importar y Exportar Datos
+    i. Importing and Exporting Data
     
-    j. Ejemplo: Generación de *Dummies*
+    j. Example: Generating *Dummies*
 
-7. Series de Tiempo
+7. Time Series
 
-    a. Estructuras de Datos de Series de tiempo en Pandas
+    a. Time Series Data Structures in Pandas
     
-    b. *Resampling* y *Shifting* (Construcción Retornos)
+    b. *Resampling* and *Shifting* (Building Returns)
 
-    b. *Rolling Window* y *Expanding Window*
+    b. *Rolling Window* and *Expanding Window*
     
-    c. Ejemplo: Portafolio *Equally Weighted* 
+    c. Example: *Equally Weighted* Portfolio 
     
-    d. Ejemplo: Retorno Acumulado Geométrico 
+    d. Example: Geometric Cumulative Return 
     
-# Lecturas Recomendadas
+# Recommended Readings
 
 ```{r, echo = FALSE, results="asis"} 
 bib

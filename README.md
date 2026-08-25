@@ -1,96 +1,127 @@
-# Introducción a Python para las Finanzas
+# Introduction to Python for Finance
 
-## Descripción del Curso
+## Course Description
 
-Creado en 1991 por Guido van Rossum, Python sea ha vuelto uno de los lenguajes de programación favorito tanto en la academia como en la industria, esto se debe a su simple sintaxis y
-extensas (poderosas) librerías. El curso busca entregar las herramientas básicas para enfrentar
-problemas financieros y/o económicos. Entre los tópicos a discutir se encuentran: estructura de
-datos, control de flujo condicional, funciones, introducción a la librería NumPy, manipulación de
-datos con Pandas y series de tiempo.
+Created in 1991 by Guido van Rossum, Python has become one of the favorite programming languages in
+both academia and industry, thanks to its simple syntax and extensive (powerful) libraries. The course
+aims to provide the basic tools to tackle financial and/or economic problems. Topics discussed include:
+data structures, conditional control flow, functions, an introduction to the NumPy library, data
+manipulation with Pandas, and time series.
 
-## Objetivos
+## Objectives
 
-1. Entender la sintaxis y ambiente de programación de Python
-2. Familiarización con los distintos tipos y estructuras de datos
-3. Manipulación de base de datos estructuradas utilizando Pandas
-4. Creación de funciones propias para resolver problemas reales
-5. Presentación de resultados utilizando Jupyter Notebooks
+1. Understand Python's syntax and programming environment
+2. Become familiar with the different data types and structures
+3. Manipulate structured databases using Pandas
+4. Create your own functions to solve real-world problems
+5. Present results using Jupyter Notebooks
 
-## Evaluaciones
+## Grading
 
-La nota final estará ponderada de la siguiente manera:
+The final grade is weighted as follows:
 
-* Tareas: 70% (máximo 2 integrantes)
-* Examen: 30% (incluye todo la materia del curso)
+* Homework: 70% (maximum 2 members per group)
+* Final Exam: 30% (covers all course material)
 
-## Metodología
+## Methodology
 
-El curso se desarrollará a través de clases expositivas y ejercicios prácticos utilizando Python.
+The course is delivered through lectures and hands-on exercises using Python.
 
-## Contenidos
+## Contents
 
-1. Introducción
+1. Introduction
 
-    + Instalación y Setup de Anaconda (IDEs)
-    + El Interpretador de Python
+    + Anaconda Installation and Setup (IDEs)
+    + The Python Interpreter
     + IPython Shell
-    + Jupyter Notebook 
+    + Jupyter Notebook
     + Google Colaboratory
-   
-2. Estructura de Datos & Secuencias
 
-    + Tupla (tuple)
-    + Lista (list)
-    + Diccionario (dict)
-    + Conjunto (set)
-    
-3. Control de Flujo Condicional
+2. Data Structures & Sequences
 
-    + Ciclos (loops) `for` y `while` 
-    + `if`, `elif` y `else`
-    + Operadores Lógicos
-    + Operadores Matemáticos 
-    + Comprehension de Lista, Conjunto y Diccionario 
+    + Tuple (`tuple`)
+    + List (`list`)
+    + Dictionary (`dict`)
+    + Set (`set`)
 
-4. Funciones
-    
-    + Creación e Importación 
-    + Módulo Itertools 
-    + Funciones Anónimas (Lambda) 
-    + Manejo de errores y excepciones
-    + Importación de Librerías 
-    + Ejemplo: Precio Bono Bullet
-  
-5. Introducción a NumPy
+3. Conditional Control Flow
 
-    + Array, Matriz y ndarray
-    + Concatenación, Separación y Subconjunto 
-    + Computación en Arrays: Broadcasting
-    + Funciones de Algebra Lineal
-    + Ejemplo: Regresión Lineal 
-    + Ejemplo: *Random Walk*
+    + `for` and `while` loops
+    + `if`, `elif` and `else`
+    + Logical Operators
+    + Mathematical Operators
+    + List, Set and Dictionary Comprehensions
 
-6. Manipulación de Datos con Pandas
+4. Functions
 
-    + DataFrame, Series e Index Object
-    + Funciones Esenciales para Estructura de Datos en Pandas
-    + Tratamiento de *Missing Values* y *Null Values* 
-    + Transformación de variables
-    + Agregación de Datos y Operaciones de Agrupación
-    + Combinación de Bases de Datos: Concat, Append, Merge y Join
-    + Reshape y Pivot 
-    + Importar y Exportar Datos
-    + Ejemplo: Generación de *Dummies*
+    + Creating and Importing
+    + Itertools Module
+    + Anonymous Functions (Lambda)
+    + Error and Exception Handling
+    + Importing Libraries
+    + Example: Bullet Bond Price
 
-7. Series de Tiempo
+5. Introduction to NumPy
 
-    + Estructuras de Datos de Series de tiempo en Pandas
-    + *Resampling* y *Shifting* (Construcción Retornos)
-    + *Rolling Window* y *Expanding Window*
-    + Ejemplo: Portafolio *Equally Weighted* 
-    + Ejemplo: Retorno Acumulado Geométrico 
-    
-## Lecturas Recomendadas
+    + Array, Matrix and ndarray
+    + Concatenation, Splitting and Subsetting
+    + Array Computation: Broadcasting
+    + Linear Algebra Functions
+    + Example: Linear Regression
+    + Example: *Random Walk*
+
+6. Data Manipulation with Pandas
+
+    + DataFrame, Series and Index Object
+    + Essential Functions for Pandas Data Structures
+    + Handling *Missing Values* and *Null Values*
+    + Variable Transformation
+    + Data Aggregation and Group Operations
+    + Combining Datasets: Concat, Append, Merge and Join
+    + Reshape and Pivot
+    + Importing and Exporting Data
+    + Example: Generating *Dummies*
+
+7. Time Series
+
+    + Time Series Data Structures in Pandas
+    + *Resampling* and *Shifting* (Building Returns)
+    + *Rolling Window* and *Expanding Window*
+    + Example: *Equally Weighted* Portfolio
+    + Example: Geometric Cumulative Return
+
+## Building from Source
+
+The `.Rmd` sources render to PDF via `knitr`/`bookdown`, and the slides via `xaringan`.
+
+**Python** (executed by `reticulate` inside the `{python}` chunks):
+
+```bash
+python3 -m venv ~/.virtualenvs/py4fin
+~/.virtualenvs/py4fin/bin/python -m pip install pandas numpy matplotlib plotly statsmodels yfinance openpyxl
+```
+
+The `.Rprofile` in each project directory points `reticulate` at that environment automatically.
+
+**R packages:**
+
+```r
+install.packages(c("knitr", "rmarkdown", "bookdown", "reticulate",
+                   "xaringan", "xaringanthemer", "highcharter", "RefManageR", "tidyverse"))
+remotes::install_github("mitchelloharawild/icons")  # slides
+remotes::install_github("hadley/emo")               # slides
+icons::download_fontawesome()
+```
+
+**LaTeX:** a TeX distribution (TinyTeX is fine) plus the `fontawesome` package. `Assignments/Policies`
+compiles with `xelatex` and needs `FontAwesome.otf` visible to the system font manager — on macOS,
+copy it into `~/Library/Fonts/`.
+
+> **Note:** `Material/Class-08` downloads live market data through `yfinance`. It requests the
+> ticker `FB`, which Yahoo retired when Meta re-tickered to `META` in 2022, so that request now
+> returns an empty frame and the solution notebook will not knit until the ticker is updated.
+
+## Recommended Readings
 
 1. McKinney, Wes (2017). Python for data analysis: Data wrangling with Pandas, NumPy, and IPython. "
 O’Reilly Media, Inc.".

@@ -255,7 +255,8 @@ $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
 $if(tables)$
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc}
 $if(beamer)$
 \usepackage{caption}
 % Make caption package work with longtable
@@ -415,9 +416,9 @@ $else$
 \maketitle
 \vspace{-0.75cm}
 \begin{center}
-\normalsize{\textbf{Profesor:} \textit{$prof$}} \\
-\normalsize{\textbf{Ayudante:} \textit{$ta$}} \\
-% \normalsize{Límite máximo de páginas: $page$} \\
+\normalsize{\textbf{Professor:} \textit{$prof$}} \\
+\normalsize{\textbf{Teaching Assistant:} \textit{$ta$}} \\
+% \normalsize{Maximum page limit: $page$} \\
 \vspace{0.25cm}
 \end{center}
 

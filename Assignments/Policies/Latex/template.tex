@@ -255,7 +255,8 @@ $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
 $if(tables)$
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc}
 $if(beamer)$
 \usepackage{caption}
 % Make caption package work with longtable
@@ -421,7 +422,7 @@ $else$
 \begin{center}
 % \normalsize{Entrega: $due$} \\
 % \normalsize{Enviar a: \texttt{$submit$}} \\
-% \normalsize{Límite máximo de páginas: $page$} \\
+% \normalsize{Maximum page limit: $page$} \\
 \vspace{0.5cm}
 \small{Ver políticas de tareas en \texttt{https://docenciaweb.fen.uchile.cl/}}% \texttt{https://business-intelligence.netlify.app/}}
 \vspace{0.25cm}

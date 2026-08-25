@@ -1,7 +1,7 @@
 ---
 title: "&gt; Meet the Toolkit"
-author: "Gabriel E. Cabrera, M.Sc.<br><span style = 'font-size: 50%;'>Universidad de Chile<br>Magister en Finanzas - Full Time</span>"
-date: 'Otoño 2022<br><br>`r icons::icon_style(icons::fontawesome("link", style = "solid"), scale = 1, fill = "white")` [bit.ly/2ObxeQa](https://bit.ly/2ObxeQa)<br>`r icons::icon_style(icons::fontawesome("twitter", style = "brands"), scale = 1, fill = "white")` [GabboCg](https://twitter.com/gabbocg)'
+author: "Gabriel E. Cabrera, M.Sc.<br><span style = 'font-size: 50%;'>Universidad de Chile<br>Master in Finance – Full Time</span>"
+date: 'Fall 2022<br><br>`r icons::icon_style(icons::fontawesome("link", style = "solid"), scale = 1, fill = "white")` [bit.ly/2ObxeQa](https://bit.ly/2ObxeQa)<br>`r icons::icon_style(icons::fontawesome("twitter", style = "brands"), scale = 1, fill = "white")` [GabboCg](https://twitter.com/gabbocg)'
 output:
   xaringan::moon_reader:
     chakra: libs/remark-latest.min.js
@@ -18,7 +18,7 @@ output:
 
 layout: true
   
-<div class="my-footer"><span><small>Introducción a Python para las Finanzas • @GabboCg</small></span></div> 
+<div class="my-footer"><span><small>Introduction to Python for Finance • @GabboCg</small></span></div>
 
 ---
 
@@ -46,13 +46,13 @@ class: center, middle
 
 <img style="border-radius: 50%; border:3px solid #ffffff;" src="https://avatars1.githubusercontent.com/u/35644280?s=400&u=67a633cb4550ad26715625df4b09ecc580677441&v=4" width="150px"/>
 
-# Me pueden encontrar...
+# You can find me at...
 
 <a href="mailto:gcabrerag@fen.uchile.cl"><i class="fa fa-paper-plane fa-fw"></i>&nbsp;gcabrerag@fen.uchile.cl</a><br>
 <a href="https://gcabrerag.rbind.io/"><i class="fa fa-link fa-fw"></i>&nbsp; gcabrerag.rbind.io</a><br>
 <a href="https://twitter.com/GabboCg"><i class="fab fa-twitter"></i>&nbsp; @GabboCg</a><br>
 <a href="http://github.com/GabboCg"><i class="fab fa-github"></i>&nbsp; @GabboCg</a><br>
-<a href="http://pregrado.fen.uchile.cl/"><i class="fa fa-map-marker fa-fw"></i>&nbsp; Facultad de Economía & Negocios, Universidad de Chile </a>
+<a href="http://pregrado.fen.uchile.cl/"><i class="fa fa-map-marker fa-fw"></i>&nbsp; School of Economics and Business, Universidad de Chile </a>
 
 ---
 
@@ -62,15 +62,15 @@ class: inverse, center, middle
 
 ---
 
-# [`r fontawesome::fa("fab fa-youtube", fill = "red")`](https://youtu.be/_bT30M4aBVM)  Instalación
+# [`r fontawesome::fa("fab fa-youtube", fill = "red")`](https://youtu.be/_bT30M4aBVM)  Installation
 
-Para instalar Anaconda deben seguir los siguientes pasos:
+To install Anaconda you must follow these steps:
 
-1. Ir a [https://www.anaconda.com/](https://www.anaconda.com/)
+1. Go to [https://www.anaconda.com/](https://www.anaconda.com/)
 
-2. Clic en **Products** > **Individual Edition** > **Download** 
+2. Click on **Products** > **Individual Edition** > **Download**
 
-3. Seleccionar el Anaconda **installer** (Graphical Installer) con Python 3.8 según el sistema operativo del usuario:
+3. Select the Anaconda **installer** (Graphical Installer) with Python 3.8 according to your operating system:
 
   * Windows `r fontawesome::fa("fab fa-windows")` 
   
@@ -78,9 +78,9 @@ Para instalar Anaconda deben seguir los siguientes pasos:
   
   * Linux `r fontawesome::fa("fab fa-linux")` 
 
-4. Seguir las instrucciones de su sistema operativo hasta completar la instalación.
+4. Follow the instructions for your operating system until the installation is complete.
 
-5. Para verificar que la instalación de Anaconda haya sido la correcta, clic en el siguiente enlace: [`r fontawesome::fa("fab fa-youtube", fill = "red")`](https://youtu.be/0dRb5wRjEq8)
+5. To verify that Anaconda was installed correctly, click on the following link: [`r fontawesome::fa("fab fa-youtube", fill = "red")`](https://youtu.be/0dRb5wRjEq8)
 
 ---
 
@@ -90,7 +90,7 @@ class: inverse, center, middle
 
 ---
 
-# ¿Cómo usar Jupyter Notebook?
+# How to use Jupyter Notebook?
 
 <br>
 <center>
@@ -99,7 +99,7 @@ src="https://www.youtube.com/embed/r58wn96Qd3c">
 </iframe>
 </center>
 
-* Fuente: https://youtu.be/r58wn96Qd3c
+* Source: https://youtu.be/r58wn96Qd3c
 
 ---
 
@@ -109,44 +109,44 @@ class: inverse, center, middle
 
 ---
 
-# [`r fontawesome::fa("fab fa-youtube", fill = "red")`](https://youtu.be/PZEHvgx06FE) ¿Cómo usar Google Colab?
+# [`r fontawesome::fa("fab fa-youtube", fill = "red")`](https://youtu.be/PZEHvgx06FE) How to use Google Colab?
 
-1. Una alternativa a Spyder es Google Colab (.ipynb).
+1. An alternative to Spyder is Google Colab (.ipynb).
 
-2. Colab te permite ejecutar y programar en Python<sup>1</sup> en tu navegador:
+2. Colab lets you run and write Python<sup>1</sup> code in your browser:
 
-  * No requiere configuración
-  
-  * Acceso gratuito a GPUs
-  
-  * Compartir fácilmente
+  * No configuration required
 
-3. Para ingresar se debe ir a https://colab.research.google.com/
+  * Free access to GPUs
 
-4. Luego click en Iniciar sesión (puede usar su correo @fen.uchile.cl)
+  * Easy sharing
 
-5. Para ver el uso de Google Colab, haz clic en `r fontawesome::fa("fab fa-youtube", fill = "red")` al lado izquierdo de título de esta *slide*.
+3. To get started, go to https://colab.research.google.com/
+
+4. Then click on Sign in (you may use your @fen.uchile.cl email)
+
+5. To see Google Colab in action, click on `r fontawesome::fa("fab fa-youtube", fill = "red")` to the left of this *slide*'s title.
 
 .footnote[
 
-[1] También acepta otros lenguajes de programación como R o Julia 😱😱😱!!!.
+[1] It also supports other programming languages such as R or Julia 😱😱😱!!!.
 
 ]
 
 ---
 class: center, middle, inverse
 
-# Muchas Gracias
- 
-El tema del slides fue basado en [Jennifer L Thompson](https://jenthompson.me/resources/).
+# Thank You Very Much
 
-Slides creadas vía el paquete de R [xaringan](https://github.com/yihui/xaringan).
+The slide theme was based on [Jennifer L Thompson](https://jenthompson.me/resources/).
 
-Los chakras provienen de [remark.js](https://remarkjs.com), [knitr](http://yihui.name/knitr), y [R Markdown](https://rmarkdown.rstudio.com).
+Slides created via the R package [xaringan](https://github.com/yihui/xaringan).
 
-Este trabajo está licenciado con Creative Commons Attribution- ShareAlike 4.0 International License. 
+The chakras come from [remark.js](https://remarkjs.com), [knitr](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
 
-Para ver una copia de está licencia, visite:
+This work is licensed under a Creative Commons Attribution- ShareAlike 4.0 International License.
+
+To view a copy of this license, visit:
 
 https://creativecommons.org/licenses/by-sa/4.0/
 
