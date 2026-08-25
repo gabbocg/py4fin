@@ -1,0 +1,151 @@
+---
+header-includes:
+  - \usepackage[english]{babel}
+  - \usepackage{svg}
+  - \usepackage{float}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introduction to Python for Finance
+author: "Data Analysis with Pandas"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Thursday, March 11"
+# submit: "engin604assignments@gmail.com"
+# page: "5 pages"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output:
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](latex/colab-badge.pdf){height=15px}](https://colab.research.google.com/drive/18YA35m9NaQdGRjhrF0FYjuhSYmjzqrrT?usp=sharing)
+
+The Pandas library is designed for tabular data analysis. It not only provides useful classes and functions, it also allows you to apply functions from other libraries such as NumPy.
+
+There are two fundamental structures in Pandas:
+
+Table: Fundamental Structures
+
+| Object type    | Description                                  | Used for                                |
+|:---------------|:---------------------------------------------|:----------------------------------------|
+| `DataFrame`    | 2-dimensional object with an index (`index`) | Tabular data organized in columns       |
+| `Series`       | 1-dimensional object with an index (`index`) | A single (time) series of data          |
+
+To import Pandas:
+
+```{python}
+# pandas is imported
+import pandas as pd
+```
+
+# Series
+
+A Series is a one-dimensional *array* that contains a sequence of values (as in NumPy) and a *label* called the index (`index`). To create a Series:
+
+```{python}
+# a Series is created
+obj = pd.Series([4, 7, -5, 3],                 # the data is defined
+                index = ['a', 'b', 'c', 'd'])  # the index is specified
+
+# obj is checked
+obj
+```
+
+# DataFrames
+
+A DataFrame is a 2-dimensional structure with labeled data (*labels*), an index on the rows as well as on the columns. A column can potentially contain different data types. To create a `DataFrame` object:
+
+```{python}
+# a DataFrame is created
+df = pd.DataFrame([10, 20, 30, 40],              # the data is defined
+                  columns = ['numbers'],         # column name
+                  index = ['a', 'b', 'c', 'd'])  # the index is specified
+
+# df is checked
+df
+```
+
+It is important to note that:
+
+* The data is organized in columns (they can have custom names)
+* There is an index that can take different formats (e.g. numbers, *strings*, etc.).
+
+To access the index:
+
+```{python}
+# extracts column
+df.columns
+```
+
+A Series can be passed to a DataFrame:
+
+```{python}
+# series to df
+obj_to_df = obj.to_frame()
+
+# the column name is assigned to it
+obj_to_df.columns = ['numbers']
+
+# checks obj_to_df
+obj_to_df
+```
+
+In summary, the DataFrame structure:
+
+```{r, echo=FALSE, fig.pos = "H", fig.align='center'}
+knitr::include_graphics("img/creating_dataframe1.png")
+```
+
+To see the documentation of the Pandas library go to: https://pandas.pydata.org/docs/
+
+# Application
+
+1. The files `gapminder.xlsx` and `gapminder.dta` contain an extract from the Gapminder project on life expectancy (`lifeExp`), GDP per capita (`gdpPercap`) and population (`pop`), by country (continent). Using the Pandas library, load both datasets into your workspace. Name one of the two `DataFrame` objects `gapminder`.
+
+2. Show the first and last 10 observations of `gapminder`.
+
+3. Generate a new `DataFrame` that contains only the countries of the American continent (`americas`) in the year 2007.
+
+4. Based on the `DataFrame` generated in (3), show:
+
+    * The country with the highest GDP per capita in the year 2007
+
+    * The country with the lowest GDP per capita in the year 2007
+
+    What do you notice about the index?
+
+5. Reset the index of the `DataFrame` generated in (3). Then drop the variables `country` and `continent`.
+
+6. Using a *list comprehension*, rename the columns with their original name in lowercase.
+
+7. Generate a variable that contains life expectancy (`lifeexp`) in months. Do it by defining a function and by using an anonymous function.
+
+8. Using the original dataset:
+
+    a. Work only with the European countries.
+
+    b. Generate the growth of GDP per capita by country.
+
+    c. Drop the `NAs`.
+
+    d. Build a brief descriptive statistics summary by country.
+
+    e. Save the descriptive statistics in a file with the .xlsx (excel) extension.

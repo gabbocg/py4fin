@@ -1,0 +1,247 @@
+---
+header-includes:
+  - \usepackage[english]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introduction to Python for Finance
+author: "Iterative Control Structures - Solution"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Thursday, March 11"
+# submit: "engin604assignments@gmail.com"
+# page: "5 pages"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1onMssaidyu7UUzk9AUEHTxqXHh5ZZOTa?usp=sharing)
+
+# *Loops* with & without `range()`
+
+1. Build a list containing the names of the following technology companies: 'Facebook', 'Apple', 'Amazon' and 'Netflix'.
+
+    a. Print to the console each element in the list.
+    
+        ```{python}
+        list1 = ['Facebook', 'Apple', 'Amazon', 'Netflix']
+        
+        for tech in list1:
+          print('Company:'+tech)
+        ```
+    
+    b. Print to the console each element in the list with its corresponding index.
+
+        ```{python}
+        for i, tech in enumerate(list1):
+          print('index:'+str(i)+','+'Company:'+tech)
+        ```
+        
+    c. Print to the console each letter that makes up each element (company) in the list.
+            
+        ```{python}
+        for tech in list1:
+          for i, letter in enumerate(tech):
+            print('n°:'+str(i)+','+'Letter:'+letter+','+'Company:'+tech)
+        ```
+       
+2. Generate a sequence from 0 to 10 and print each value to the console.
+    
+    ```{python}
+    for num in range(0,11):
+      print(num)
+    ```
+    
+3. Generate a sequence from 0 to 10 and print each value to the console in descending order.
+    
+    ```{python}
+    for num in reversed(range(0,11)):
+      print(num)
+    ```
+    
+\newpage     
+# Conditionals
+
+1. Build the following sequence of numbers including the `None` values: 1, 2, `None`, 4, 5, 6, `None`. Then, using a *loop*, add up the elements that are numeric (do not consider `None`)
+    
+    ```{python}
+    seq = [1, 2, None, 4, 5, 6, None]
+    
+    total = 0 # variable equal to zero
+    
+    for j in seq:
+      if j == None:
+        continue    
+      else:
+        total += j
+    
+    print('The total sum is: '+str(total))
+    ```
+    
+2. Build the following sequence of numbers including the `None` values: 1, 2, `None`, 4, 5, 6, `None`. Then, using a *loop*, add up all the numeric elements before the first `none`.
+
+    ```{python}
+    seq1 = [1, 2, None, 4, 5, 6, None]
+    
+    # variable equal to zero
+    total1 = 0
+    
+    for j in seq1:
+      if j == None:
+        break   
+      else:
+        total1 += j
+    
+    print('The total sum is: '+str(total1))
+    ```
+
+3. Build the following sequence of numbers: 1, 2, 3, 4, 5, 6, 7. Then, using a *loop*, add up the elements smaller than the number 5.
+
+    ```{python}
+    seq2 = list(range(1,8))
+    
+    # way 1
+    total2 = 0
+    
+    for j in seq2:
+      if j < 5:
+        total2 += j
+      elif j == 5:
+        print(str(j)+' is equal to 5')
+      else:
+        print(str(j)+' is greater than 5')
+      
+    total2
+    ```
+
+4. Add up all the numbers from 0 to 15 that are multiples of 3 or 5.
+
+    ```{python}
+    seq2 = range(16)
+    
+    total3 = 0
+    
+    for k in seq2:
+      if (k%3 == 0) or (k%5 == 0):
+        total3 += k
+      else:
+        print(str(k)+' is not a multiple of 3 or 5')
+    
+    total3 
+    ```
+
+5. Build a *loop* that generates the Fibonacci sequence, which is characterized by each number being the sum of the two previous numbers. For example, the first 14 numbers of the sequence are: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233.
+
+    ```{python}
+    fib = []
+    
+    fib.append(0)
+    fib.append(1)
+    
+    x = 1
+    
+    while x <= 12:
+      res = fib[x] + fib[x - 1] 
+      fib.append(res)
+      x += 1
+    
+    fib
+    ```
+  
+# *Comprehension*
+
+A "*list comprehension*" allows you to build new lists (`list`) by filtering the elements of a collection (sequence) with a single expression. Its traditional form is the following:
+
+```python
+[expr for val in collection if condition]
+```
+the above is equivalent to:
+
+```python
+res = []
+for val in collection:
+  if condition:
+    result.append(expr)
+```
+    
+For example:    
+    
+```{python}
+list2 = ['Facebook', 'Apple', 'Amazon', 'Netflix']
+
+list2_title = [elem.upper() for elem in list2]
+list2_title 
+```
+
+Which in its standard form is equivalent to:
+
+```{python}
+list2_title2 = []
+
+for elem in list2:
+  list2_title2.append(elem.upper())
+
+list2_title2
+```
+
+You can even add the `else` conditional, which changes the structure of the *list comprehension* slightly, but the goal is the same:
+
+```{python}
+[num if (num%3 == 0) or (num%5 == 0) else None for num in range(16)]
+```
+
+Which in its standard form is equivalent to:
+
+```{python}
+res2 = []
+
+for num in range(16):
+  if (num%3 == 0) or (num%5 == 0):
+    res2.append(num)
+  else:
+    res2.append(None)
+
+res2
+```
+
+It can also be used to "flatten" nested lists:
+
+```{python}
+nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+[sub_elem for elem in nested_list for sub_elem in elem]
+```
+
+Which in its standard form is equivalent to:
+
+```{python}
+flattened_list = []
+
+for elem in nested_list:
+  for sub_elem in elem:
+    flattened_list.append(sub_elem)
+
+flattened_list
+```
+
+To see *comprehension* for dictionaries (`dict`) and tuples (`tuple`), see pages 67 and 68 of the book *Python for Data Analysis: Data Wrangling with Pandas, Numpy, and Ipython* by Wes McKinney.

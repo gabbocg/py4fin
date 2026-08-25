@@ -1,0 +1,319 @@
+---
+header-includes:
+  - \usepackage[english]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introduction to Python for Finance — Fall 2021
+author: "Homework 2 - Solution"
+due: "11:59pm, Saturday, April 3"
+submit: "engin604assignments@gmail.com"
+page: "5 pages"
+policies: "https://docenciaweb.fen.uchile.cl"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output:
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: no
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "latex/template.tex"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/14Jx1ot2f1U0BV6VUGoa9AZmMMNH51D5_?usp=sharing)
+
+The file `returns_portfolios.pkl` contains a list that stores the monthly return of two portfolios ($j = 1, 2$) from 2015-01-01 to 2020-12-01. Using this file, answer the following:
+
+1. Import the file `returns_portfolios.pkl` as shown below:
+
+    ```{python, eval=FALSE}
+    # imports the pandas library
+    import pandas as pd
+
+    # reads pickle
+    returns_portfolios = pd.read_pickle('returns_portfolios.pkl')
+    ```
+
+2. Write a function that computes the average of a series of data stored in a list.
+
+    $$
+    r_j = \frac{\sum_{i=1}^{n} x_i}{n}
+    $$
+
+    ```{python, eval=FALSE}
+    def arithmetic_mean(x):
+        """
+        Parameters
+        ----------
+        x : list
+            List with the returns.
+
+        Returns
+        -------
+        Arithmetic mean
+
+        """
+
+        output = sum(x) / len(x)
+
+        return(output)
+    ```
+
+    ```{python, eval=FALSE}
+    port_a = returns_portfolios[0][1]
+    port_b = returns_portfolios[1][1]
+    ```
+
+    What is the average of each portfolio?
+
+    ```{python, eval=FALSE}
+    arithmetic_mean(port_a)
+    ```
+
+    ```
+    ## 0.02504936690460206
+    ```
+
+    ```{python, eval=FALSE}
+    arithmetic_mean(port_b)
+    ```
+
+    ```
+    ## 0.02466073807150548
+    ```
+
+3. Write a function that computes the standard deviation of a series of data stored in a list.
+
+    $$
+    \sigma_j = \sqrt{\frac{\sum_{i=1}^{n} (x_i - r_j)^2}{n-1}}
+    $$
+
+    ```{python, eval=FALSE}
+    def desv_std(x):
+        """
+        Parameters
+        ----------
+        x : list
+            List with the returns.
+
+        Returns
+        -------
+        Standard deviation.
+
+        """
+
+        desv_squared = 0
+
+        mean_j = arithmetic_mean(x)
+
+        for row in x:
+            desv_squared += (row - mean_j) ** 2
+
+        output = (desv_squared / (len(x) - 1)) ** (1/2)
+
+        return(output)
+    ```
+
+    What is the standard deviation of each portfolio?
+
+    ```{python, eval=FALSE}
+    desv_std(port_a)
+    ```
+
+    ```
+    ## 0.06566030506240997
+    ```
+
+    ```{python, eval=FALSE}
+    desv_std(port_b)
+    ```
+
+    ```
+    ## 0.06322762683884962
+    ```
+
+4. Write a function that computes the Kurtosis of a series of data stored in a list. The Kurtosis is defined as:
+
+    $$
+    \text{Kurtosis}_j = \frac{\dfrac{\sum_{i=1}^{n} (x_i - r_j)^4}{n}}
+    {\left[\dfrac{\sum_{i=1}^{n} (x_i - r_j)^2}{n}\right]^{2}}
+    $$
+
+    ```{python, eval=FALSE}
+    def kurtosis(x):
+        """
+        Parameters
+        ----------
+        x : list
+            List with the returns.
+
+        Returns
+        -------
+        Kurtosis.
+
+        """
+
+        # numerator
+        desv4 = 0
+
+        mean_j = arithmetic_mean(x)
+
+        for row in x:
+            desv4 += (row - mean_j) ** 4
+
+        above = desv4 / len(x)
+
+        # denominator
+        desv2 = 0
+
+        for row1 in x:
+            desv2 += (row1 - mean_j) ** 2
+
+        below = desv2 / len(x)
+
+        output = above / (below ** 2)
+
+        return(output)
+    ```
+
+    What is the Kurtosis of each portfolio?
+
+    ```{python, eval=FALSE}
+    kurtosis(port_a)
+    ```
+
+    ```
+    ## 3.3000545189533392
+    ```
+
+    ```{python, eval=FALSE}
+    kurtosis(port_b)
+    ```
+
+    ```
+    ## 2.612713317448421
+    ```
+
+5. Write a function that computes the Skewness of a series of data stored in a list. The Skewness is defined as:
+
+    $$
+    \text{Skewness}_j = \frac{\dfrac{\sum_{i=1}^{n} (x_i - r_j)^3}{n}}
+    {\left[\dfrac{\sum_{i=1}^{n} (x_i - r_j)^2}{n}\right]^{1.5}}
+    $$
+
+    ```{python, eval=FALSE}
+    def skewness(x):
+        """
+        Parameters
+        ----------
+        x : list
+            List with the returns.
+
+        Returns
+        -------
+        Skewness
+
+        """
+
+        # numerator
+        desv3 = 0
+
+        mean_j = arithmetic_mean(x)
+
+        for row in x:
+            desv3 += (row - mean_j) ** 3
+
+        above = desv3 / len(x)
+
+        # denominator
+        desv2 = 0
+
+        for row1 in x:
+            desv2 += (row1 - mean_j) ** 2
+
+        below = desv2 / len(x)
+
+        output = above / (below ** (1.5))
+
+        return(output)
+    ```
+
+    What is the Skewness of each portfolio?
+
+    ```{python, eval=FALSE}
+    skewness(port_a)
+    ```
+
+    ```
+    ## 0.10967498828025245
+    ```
+
+    ```{python, eval=FALSE}
+    skewness(port_b)
+    ```
+
+    ```
+    ## -0.12317820666332488
+    ```
+
+6. A bullet bond is one in which the issuer pays the bondholder coupons (interest payments) corresponding to each period, and at maturity (the last period) the holder receives the coupon plus the principal (the face value of the bond). The mathematical formula would be:
+
+    $$
+    P_B = \sum_{t=1}^{T-1} \frac{C}{(1 + r)^t} + \frac{C + \text{Face Value}}{(1 + r)^T}
+    $$
+
+    Where $P_B$ is the bond price, $C$ the interest or coupon payment, $T$ the number of periods and $r$ the discount rate. Given the above, build a function that allows you to compute the price of any bullet bond. To test your function use a bond with annual coupon payment, 25-year maturity, coupon rate of 6.5%, discount rate of 6.9% and face value of 100.
+
+    $$
+    P_B = \frac{6.5}{(1 + 0.069)^1} + ... + \frac{6.5}{(1 + 0.069)^{24}} + \frac{6.5 + 100}{(1 + 0.069)^{25}} = 95.29627
+    $$
+
+    ```{python, eval=FALSE}
+    def bullet_bond_price(vn, t, tc, r):
+        """
+        Parameters
+        ----------
+        vn : float
+            Face value of the bullet bond.
+        t : float
+            Number of periods.
+        tc : float
+            Coupon interest.
+        r : float
+            Discount rate.
+
+        Returns
+        -------
+        Price of a bullet bond.
+
+        """
+
+        pb = 0
+
+        for i in range(1, t + 1):
+            if i == t:
+                pb += (vn * tc + vn) / (1 + r) ** i
+            else:
+                pb += (vn * tc) / (1 + r) ** i
+
+        return(pb)
+    ```
+
+    ```{python, eval=FALSE}
+    bullet_bond_price(100, 25, 0.065, 0.069)
+    ```
+
+    ```
+    ## 95.2962713625338
+    ```

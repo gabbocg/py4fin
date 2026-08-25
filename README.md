@@ -121,7 +121,19 @@ python3 -m venv ~/.virtualenvs/py4fin
 ~/.virtualenvs/py4fin/bin/python -m pip install pandas numpy matplotlib plotly statsmodels yfinance openpyxl
 ```
 
-The `.Rprofile` in each project directory points `reticulate` at that environment automatically.
+Then point `reticulate` at it. `.Rprofile` files are **not tracked in this repository**
+(see `.gitignore`), so create one yourself in each directory you knit from — or once in your home
+directory to cover everything:
+
+```r
+# ~/.Rprofile
+local({
+  venv <- path.expand("~/.virtualenvs/py4fin/bin/python")
+  if (file.exists(venv)) Sys.setenv(RETICULATE_PYTHON = venv)
+})
+```
+
+Alternatively, set `RETICULATE_PYTHON` in your environment before launching R.
 
 **R packages:**
 
@@ -133,11 +145,11 @@ remotes::install_github("hadley/emo")               # slides
 icons::download_fontawesome()
 ```
 
-**LaTeX:** a TeX distribution (TinyTeX is fine) plus the `fontawesome` package. `Assignments/Policies`
+**LaTeX:** a TeX distribution (TinyTeX is fine) plus the `fontawesome` package. `assignments/policies`
 compiles with `xelatex` and needs `FontAwesome.otf` visible to the system font manager — on macOS,
 copy it into `~/Library/Fonts/`.
 
-> **Note:** `Material/Class-08` downloads live market data through `yfinance`. It requests the
+> **Note:** `material/class-08` downloads live market data through `yfinance`. It requests the
 > ticker `FB`, which Yahoo retired when Meta re-tickered to `META` in 2022, so that request now
 > returns an empty frame and the solution notebook will not knit until the ticker is updated.
 

@@ -1,7 +1,16 @@
+# R
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
-.DS_Store
+.Rprofile
+
+# Python
 __pycache__/
 *.pyc
+
+# Tooling
+.claude/
+
+# macOS
+.DS_Store

@@ -1,0 +1,288 @@
+---
+header-includes:
+  - \usepackage[english]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introduction to Python for Finance
+author: "Application: Capital Asset Pricing Model - Solution"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Thursday, March 11"
+# submit: "engin604assignments@gmail.com"
+# page: "5 pages"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1NEAaJ_cDxvQLXAAHvVR-S2Af-HQHNmsM?usp=sharing)
+
+Developed by William Sharpe (1964), the CAPM (*Capital Asset Pricing Model*) starts from the idea that every investment carries two types of risk: systematic (market risk that cannot be diversified away) and unsystematic (the component of a stock's return that is not correlated with market movements). portfolio diversification can remove unsystematic risk; however, this is not the case for systematic risk. 
+
+The CAPM is a way of measuring systematic risk. William Sharpe finds that the return of a stock or portfolio is:
+
+$$
+R_{i,t} = R_f + \beta_i (R_{m,t} - R_f)
+$$
+
+Where:
+
+* $R_{i,t}$: Expected return of the portfolio or stock.
+
+* $R_f$: Risk-free rate.
+
+* $R_{m,t}$: Expected market return.
+
+* $R_{m,t} - R_f$: *Equity market premium*
+
+* $\beta_i$: The CAPM beta.
+
+According to the CAPM, $\beta$ is the only relevant measure of risk, defined as:
+
+$$
+\beta_{i} = \frac{cov(R_{p,t}, R_{m,t})}{\sigma^{2}_m} 
+$$
+
+If $\beta$ is taken as the second coefficient of a simple OLS linear regression:
+
+$$
+R_{i,t} - R_{f} = \alpha_{i} + \beta_{i} (R_{m,t} - R_f) + \varepsilon_{i,t}
+$$
+
+Although the model above is not the CAPM, the regression allows the CAPM $\beta$ to be estimated. In fact, if $\alpha_i$ = 0 and $Cov(R_{m,t}, \varepsilon_{i,t}) = 0$ then:
+
+$$
+\begin{aligned}
+R_{i,t} - R_{f} &= \beta_{i} (R_{m,t} - R_f) \\
+R_{i,t}  &= R_{f} + \beta_{i} (R_{m,t} - R_f)
+\end{aligned}
+$$
+
+The CAPM equation is obtained.
+
+\newpage
+# Application
+
+1. Import the files `stocks.pkl`, `sp500.pkl` and `rfree.pkl`.
+
+    * `stocks.pkl`: indices for Facebook, Apple, Amazon, Netflix and Google from 2014:12 to 2020:12.
+
+    * `sp500.pkl`: Closing price of the S&P 500 index from 2014:12 to 2020:12.
+
+    * `rfree.pkl`: Risk-free rate from 2015:01 to 2020:12.
+
+        ```{python}
+        import numpy as np
+        import pandas as pd
+
+        # load indices
+        stocks = pd.read_pickle('stocks.pkl')
+
+        # load s&p 500
+        sp500 = pd.read_pickle('sp500.pkl')
+
+        # risk-free rate
+        Rf = pd.read_pickle('rfree.pkl')
+        ```
+
+2. Write a function that computes the arithmetic return, defined as:
+
+    $$
+    R_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} \quad i = 1,..,5 \quad t = 1,..,73
+    $$
+    
+    ```{python}
+    # create the function
+    def returns(x):
+
+        '''
+        Parameters
+        ----------
+        x : Array of dimension tx1
+
+        Returns
+        -------
+        Arithmetic return of dimension (t-1)x1
+        '''
+
+        arithmetic_return = np.diff(x, axis = 0) / x[:-1]
+        return(arithmetic_return)
+    ```
+
+3. Apply the function created in (2) to each element (closing prices) stored in the dictionary.
+
+    ```{python}
+    # empty dictionary
+    dict_return = {}
+
+    for ticker, close in stocks.items():
+        print('Computing return for ticker: ', ticker)
+        dict_return[ticker] = returns(close)
+    ```
+
+4. Apply the function created in (2) to the S&P 500 index. Then subtract the risk-free rate.
+
+    $$
+    R_{m,t} = R_{sp500} - R_f
+    $$
+
+    ```{python}
+    # market return
+    Rm = returns(sp500)
+    
+    # risk premium
+    Rm_Rf = Rm - Rf
+    ```
+
+5. Write a function that weights each return by a fixed weight. The weights must sum to 1 and the *output* must have the risk-free rate $R_f$ subtracted.
+
+    $$
+    \begin{aligned}
+    R_{p,t} & = \mathbf{R}\cdot \mathbf{W} = \begin{pmatrix}
+    r_{11} & r_{12} & \dots  & r_{1i} \\
+    r_{21} & r_{22} & \dots  & r_{2i} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    r_{t1} & r_{t2} & \dots  & r_{ti}
+    \end{pmatrix}_{t\times i} \cdot \begin{pmatrix}
+    w_{1}  \\ 
+    w_{2}  \\
+    \vdots \\
+    w_{i}  \\
+    \end{pmatrix}_{i \times 1}
+    \end{aligned}
+    $$
+
+    Test your function with the following weights:
+
+    Table: Index & weights
+
+    | Index  | Weights |
+    |--------|---------|
+    | AAPL   | 0.25    |
+    | AMZN   | 0.25    |
+    | FB     | 0.20    |
+    | GOOG   | 0.20    |
+    | NFLX   | 0.10    |
+
+    ```{python}
+    # weights (sum to 1)
+    w = np.array([0.25, 0.25, 0.20, 0.20, 0.10]).reshape((-1,1))
+
+    # create the function
+    def portfolio(x, w, rf):
+
+        '''
+        Parameters
+        ----------
+        x : Dictionary containing i arrays of dimension t1
+        w : Weights of dimension i1
+        rf: Risk-free rate of dimension t1
+
+        Returns
+        -------
+        Weighted portfolio of dimension t1
+        '''
+
+        ret_list = []
+
+        for name, r_i in x.items():
+            ret_list.append(r_i)
+
+        ret_mat = np.concatenate(ret_list, axis=1)
+        rp = ret_mat.dot(w) - rf
+
+        return(rp)
+
+    # excess return
+    Rp_Rf = portfolio(dict_return, w, Rf)
+    ```
+
+6. Write a function that obtains the $\hat{\beta}$ of a linear regression using its matrix form:
+
+    $$
+    \hat{\beta} = (\mathbf{X}'\mathbf{X})^{-1}(\mathbf{X}'y) 
+    $$
+
+    ```{python}
+    # create the function
+    def ols(x,y):
+
+        '''
+        Parameters
+        ----------
+        x : ti matrix (Rm - Rf)
+        y : ti matrix (Rp - Rf)
+
+        Returns
+        -------
+        Alpha and Beta
+        '''
+
+        m,n = x.shape
+
+        x_with_ones = np.hstack((np.ones((m,1)),x))
+
+        x_t_x = x_with_ones.T.dot(x_with_ones)
+        inv_x_t_x = np.linalg.inv(x_t_x)
+
+        betas = inv_x_t_x.dot(x_with_ones.T.dot(y))
+
+        return(betas)
+
+    # parameters
+    ols(Rm_Rf,Rp_Rf)
+    ```
+
+7. Show that the previous result is equal to:
+
+    $$
+    {\hat{\beta}} = \frac{cov(R_{p,t}, R_{m,t})}{\sigma^{2}_m} 
+    $$
+
+    ```{python}
+    # beta portfolio
+    cov_var_mat = np.cov(np.concatenate([Rp_Rf,Rm_Rf], axis = 1), rowvar=False) 
+    
+    print('The CAPM Beta is: ', cov_var_mat[0,1] / cov_var_mat[1,1])
+    ```
+
+8. Verify the result obtained in (6) using the `statsmodels` library.
+
+    ```{python, results='hide'}
+    import statsmodels.api as sm
+
+    # add a column of ones
+    Rm_Rf_with_const = sm.add_constant(Rm_Rf)
+
+    # OLS estimation
+    mod = sm.OLS(Rp_Rf,Rm_Rf_with_const)
+    # model fit
+    res = mod.fit()
+
+    # result
+    print(res.summary(res))
+    ```
+
+    ```{python}
+    res.params # parameters
+    ```
