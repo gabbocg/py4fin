@@ -149,7 +149,7 @@ icons::download_fontawesome()
 compiles with `xelatex` and needs `FontAwesome.otf` visible to the system font manager — on macOS,
 copy it into `~/Library/Fonts/`.
 
-> **Note:** `material/class-08` downloads live market data through `yfinance`. It requests the
+> **Note:** `material/lesson-08` downloads live market data through `yfinance`. It requests the
 > ticker `FB`, which Yahoo retired when Meta re-tickered to `META` in 2022, so that request now
 > returns an empty frame and the solution notebook will not knit until the ticker is updated.
 

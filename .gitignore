@@ -5,6 +5,9 @@
 .Ruserdata
 .Rprofile
 
+# knitr build artifacts (NOT slides/*/index_files, which are required)
+py4fin_*_files/
+
 # Python
 __pycache__/
 *.pyc
