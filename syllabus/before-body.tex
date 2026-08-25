@@ -1,0 +1,78 @@
+% Title-block partial for the qkit syllabus template.
+% Activated via "template-partials: before-body.tex" in the YAML header.
+%
+% This replaces Quarto's stock before-body.tex, which does nothing beyond
+% \maketitle and an optional abstract. It adds the two things that need
+% values out of the YAML header, and so cannot live in preamble.tex:
+%
+%   1. an optional logo above the title (`logo:`, `logo-width:`), and
+%   2. the course-information table (`email:`, `web:`, `officehours:`,
+%      `classhours:`, `office:`, `classroom:`).
+%
+% Every field is optional; anything left out of the YAML renders as TBD,
+% so the table keeps its shape while a course is still being scheduled.
+
+$if(logo)$
+% titling's \maketitle expands \pretitle and \posttitle around the title,
+% which is what puts the logo inside the title block rather than on a page
+% of its own. \posttitle restores titling's default trailing \vskip.
+\pretitle{%
+  \begin{center}%
+  \LARGE
+  \includegraphics[width=$if(logo-width)$$logo-width$$else$0.30\textwidth$endif$]{$logo$}\\[\bigskipamount]%
+}
+\posttitle{\par\end{center}\vskip 0.5em}
+$endif$
+
+$if(term)$
+% `term:` rather than `date:`, because Quarto parses `date:` as a calendar
+% date and normalises it -- "Fall 2026" comes back out as 2026-01-01. An
+% unrecognised key is passed through untouched, so the term prints as
+% written, both here and in the running head. Setting `date:` instead
+% still works; Quarto's own \date{} is simply left in place.
+\date{$term$}
+$endif$
+
+$if(title)$
+\maketitle
+\thispagestyle{firststyle}
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+$endif$
+
+% tabularx with two X columns, NOT tabular* with l/r columns.
+%
+% `tabular*` with \extracolsep{\fill} is the obvious way to build this and
+% it cannot wrap: an l column and an r column are set at their natural
+% width, so the moment one row's two values are together wider than
+% \textwidth the row runs past the right margin. "Office Hours: Tuesdays
+% 14:00--16:00, or by appointment" against "Class Hours: Monday and
+% Wednesday, 10:30--11:50" overflowed by 54.8pt on the stock values alone
+% -- and the only symptom is an Overfull \hbox in the log, since nothing
+% in the PDF text says the words are outside the margin.
+%
+% Two X columns each take half of \textwidth and wrap. \raggedright on the
+% left and \raggedleft on the right keeps the intended look -- labels
+% flush to the outer margins, whitespace collecting in the middle -- while
+% long values now spill onto a second line instead of off the page.
+%
+% \arraybackslash restores \\ as the row separator, which \raggedright and
+% \raggedleft otherwise redefine to their line-break meaning.
+%
+% `web:` is a BARE host -- the https:// below is supplied here. Writing a
+% full URL in the YAML produces https://https://... in the link target.
+\noindent\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X >{\raggedleft\arraybackslash}X@{}}
+E-mail: $if(email)$\texttt{$email$}$else$TBD$endif$ &
+  Web: $if(web)$\href{https://$web$}{\texttt{$web$}}$else$TBD$endif$ \\
+Office Hours: $if(officehours)$$officehours$$else$TBD$endif$ &
+  Class Hours: $if(classhours)$$classhours$$else$TBD$endif$ \\
+Office: $if(office)$$office$$else$TBD$endif$ &
+  Classroom: $if(classroom)$$classroom$$else$TBD$endif$ \\
+ & \\
+\hline
+\end{tabularx}
+
+\vspace{2mm}

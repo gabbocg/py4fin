@@ -1,0 +1,115 @@
+% qkit-syllabus LaTeX preamble.
+% Loaded via the YAML include-in-header field in index.qmd.
+%
+% Everything that does NOT need a value out of the YAML header lives here.
+% The two pieces that do -- the optional logo and the course-information
+% table -- live in before-body.tex instead, because include-in-header is
+% copied in verbatim and Pandoc never interpolates $variables$ into it.
+
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+% tabularx builds the course-information table in before-body.tex; array
+% supplies the >{...} column modifiers that make its two columns ragged.
+\usepackage{tabularx}
+
+% ---------------------------------------------------------------------
+% Typewriter and sans families.
+%
+% `fontfamily: mathpazo` sets the ROMAN family to Palatino and leaves the
+% other two at Computer Modern. Under the T1 encoding Pandoc selects,
+% those resolve to the METAFONT ec fonts, which pdflatex embeds as Type 3
+% bitmaps -- every `code span` in the PDF then renders fuzzy and is not
+% searchable. Latin Modern is the Type 1 equivalent and ships with
+% TinyTeX. Redefining the two defaults is the fix rather than loading
+% lmodern, because Pandoc loads mathpazo before this file and a later
+% \usepackage{lmodern} would take the roman family back off Palatino.
+%
+% Check with `pdffonts index.pdf`: every row should read Type 1.
+% ---------------------------------------------------------------------
+\renewcommand{\ttdefault}{lmtt}
+\renewcommand{\sfdefault}{lmss}
+
+% ---------------------------------------------------------------------
+% Title block.
+%
+% titling supplies \pretitle / \posttitle, which before-body.tex uses to
+% hang an optional logo above the title. It also replaces article's
+% \maketitle, and that is the load-bearing part: article's \@maketitle
+% opens with \newpage, so a logo emitted before \maketitle would be
+% stranded on a page of its own. titling's version has no \newpage, so
+% logo, title and information table share the first page.
+% ---------------------------------------------------------------------
+\setlength{\droptitle}{-.25cm}
+
+% ---------------------------------------------------------------------
+% Headings.
+%
+% Sections are unnumbered (number-sections: false in the YAML), so the
+% spacing below is all that separates one part of the syllabus from the
+% next -- keep the "before" skip clearly larger than the "after" one or
+% headings stop reading as breaks.
+% ---------------------------------------------------------------------
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+\titleformat*{\subsubsection}{\normalsize\itshape}
+
+% ---------------------------------------------------------------------
+% Running head and footer.
+%
+% \@title and \@date rather than $title$ and $date$: Quarto's title.tex
+% partial issues \title{} and \date{} AFTER this file is included, so the
+% macros are undefined at the point \rhead is read. That does not matter,
+% because \rhead only stores tokens -- both are expanded at shipout, by
+% which time Quarto has defined them. Keeping them here rather than in
+% before-body.tex leaves the whole page-style setup in one file.
+%
+% \@date is whatever before-body.tex last passed to \date{} -- the `term:`
+% key when it is set, otherwise Quarto's own `date:`. Delete both and the
+% head ends in a stranded dash.
+%
+% The one caveat is \thanks{}: Quarto appends it to \@title, so a syllabus
+% that sets `thanks:` in the YAML drags that footnote into the running
+% head. Set the running head by hand with \rhead{} in that case.
+% ---------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+\makeatletter
+\rhead{\footnotesize \@title{} --- \@date}
+\makeatother
+\cfoot{\small \thepage/\pageref*{LastPage}}
+
+% Page 1 already carries the title and the information table, so it takes
+% the page number but neither the rule nor the running head.
+% before-body.tex applies this with \thispagestyle.
+\fancypagestyle{firststyle}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\small \thepage/\pageref*{LastPage}}%
+}
+
+% ---------------------------------------------------------------------
+% Reading list.
+%
+% Citations go through natbib rather than citeproc (see the YAML header),
+% so the heading over the generated list is \refname. Quarto's
+% `reference-section-title` key has no effect on the natbib path -- change
+% the line below instead.
+% ---------------------------------------------------------------------
+\renewcommand{\refname}{Recommended Readings}
+
+% Drop natbib's comma before the year, giving "(McKinney 2022)" rather
+% than "(McKinney, 2022)".
+\setcitestyle{aysep={}}
+
+% Give the generated entries a little air.
+\AtBeginEnvironment{thebibliography}{%
+  \setlength{\itemsep}{4pt}%
+}

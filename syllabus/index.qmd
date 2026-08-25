@@ -1,0 +1,252 @@
+---
+title: "ENGIN 604 --- Introduction to Python for Finance"
+author: "Gabriel Cabrera G."
+
+# `term:`, not `date:` -- Quarto normalises `date:` into a calendar date,
+# which would render "Fall 2021" as 2021-01-01.
+term: "Fall 2021"
+
+# Course information block. `web:` takes a BARE host; before-body.tex
+# supplies the https:// prefix.
+email: gcabrerag@fen.uchile.cl
+web: canvas.fen.uchile.cl
+officehours: "Webex"
+classhours: "N/A"
+office: "N/A"
+classroom: "Webex"
+
+logo: logo_uchile.png
+logo-width: '0.22\textwidth'
+
+bibliography: references.bib
+nocite: |
+  @*
+
+cite-method: natbib
+biblio-style: apalike
+natbiboptions: round,authoryear
+link-citations: true
+
+format:
+  pdf:
+    pdf-engine: pdflatex
+    fontfamily: mathpazo
+    documentclass: article
+    classoption:
+      - "11pt"
+    geometry:
+      - margin=1in
+    fontsize: 11pt
+    linestretch: 1.05
+    number-sections: false
+    colorlinks: true
+    linkcolor: black
+    citecolor: blue
+    urlcolor: blue
+    template-partials:
+      - before-body.tex
+    include-in-header: preamble.tex
+---
+
+# Course Description
+
+Created in 1991 by Guido van Rossum, Python has become one of the favorite
+programming languages both in academia and in industry, thanks to its simple
+syntax and extensive (powerful) libraries. The course seeks to provide the
+basic tools to tackle financial and/or economic problems. Among the topics to
+be discussed are: data structures, conditional control flow, functions, an
+introduction to the NumPy library, data manipulation with Pandas and time
+series.
+
+# Objectives
+
+By the end of the course, students will be able to:
+
+1. Understand Python's syntax and programming environment.
+
+2. Work confidently with the different data types and data structures.
+
+3. Manipulate structured datasets using Pandas.
+
+4. Create their own functions to solve real-world problems.
+
+5. Present results using Jupyter Notebooks.
+
+# Prerequisites and Materials
+
+<!-- TODO: state the background students need before enrolling. -->
+
+**Prerequisites.** TBD.
+
+**Software.** The course uses Python through the Anaconda distribution, and
+Google Colaboratory for the in-class notebooks; both are free. See
+@mckinney2017python for the Pandas and NumPy workflow the course follows.
+
+**Readings.** The list at the end of this document is generated from
+`references.bib`. All four titles are recommended rather than required.
+
+# Methodology
+
+The course is taught through lectures and hands-on exercises using Python.
+Each session pairs a short exposition of the topic with a worked notebook
+that students complete during class; solutions are released afterwards.
+
+# Grading
+
+The final grade is weighted as follows:
+
+| Component | Weight | Notes |
+|:----------|-------:|:------|
+| Homework | 70% | Four assignments, groups of at most 2 |
+| Final exam | 30% | Covers all the course material |
+
+Homework policies --- submission format, file naming and the deadline
+convention --- are set out in a separate document, `assignments/policies`.
+
+# Course Schedule
+
+| Week | Session | Date | Topic |
+|:-----|:--------|:-----|:------|
+| 0 | 0 | Mon, Mar 1 | Meet the Toolkit: Anaconda & Google Colab |
+| 1 | 1 | Tue, Mar 9 | Hello Python! |
+| 1 | 2 | Thu, Mar 11 | Data Structure and Sequences |
+| 2 | 3 | Tue, Mar 16 | Python Language Basics Part 1 |
+| 2 | 4 | Thu, Mar 18 | Python Language Basics Part 2 |
+| 3 | 5 | Tue, Mar 23 | Generate Functions (Anonymous) |
+| 3 | 6 | Thu, Mar 25 | Import Libraries + Application |
+| 4 | 7 | Tue, Mar 30 | Introduction to NumPy |
+| 4 | 8 | Thu, Apr 1 | NumPy Application |
+| 5 | 9 | Tue, Apr 6 | Data Wrangling with Pandas |
+| 5 | 10 | Thu, Apr 8 | Concat, Append, Merge & Join |
+| 6 | 11 | Tue, Apr 13 | Reshape & Pivot + Application |
+| 6 | 12 | Thu, Apr 15 | Time Series |
+| 7 | 13 | Thu, Apr 22 | Final exam (deadline) |
+
+: Course schedule {#tbl-schedule tbl-colwidths="[8,10,20,62]"}
+
+# Course Contents
+
+1. Introduction
+
+    a. Installation and Setup of Anaconda (IDEs)
+
+    b. The Python Interpreter
+
+    c. IPython Shell
+
+    d. Jupyter Notebook
+
+    e. Google Colaboratory
+
+2. Data Structures & Sequences
+
+    a. Tuple (`tuple`)
+
+    b. List (`list`)
+
+    c. Dictionary (`dict`)
+
+    d. Set (`set`)
+
+3. Conditional Control Flow
+
+    a. `for` and `while` loops
+
+    b. `if`, `elif` and `else`
+
+    c. Logical Operators
+
+    d. Mathematical Operators
+
+    e. List, Set and Dictionary Comprehension
+
+4. Functions
+
+    a. Creating and Importing
+
+    b. Itertools Module
+
+    c. Anonymous Functions (Lambda)
+
+    d. Error and Exception Handling
+
+    e. Importing Libraries
+
+    f. Example: Bullet Bond Price
+
+5. Introduction to NumPy
+
+    a. Array, Matrix and ndarray
+
+    b. Concatenation, Splitting and Subsetting
+
+    c. Array Computation: Broadcasting
+
+    d. Linear Algebra Functions
+
+    e. Example: Linear Regression
+
+    f. Example: *Random Walk*
+
+6. Data Manipulation with Pandas
+
+    a. DataFrame, Series and Index Object
+
+    b. Essential Functions for Pandas Data Structures
+
+    c. Handling *Missing Values* and *Null Values*
+
+    d. Variable Transformation
+
+    e. Data Aggregation and Group Operations
+
+    f. Combining Datasets: Concat, Append, Merge and Join
+
+    g. Reshape and Pivot
+
+    h. Importing and Exporting Data
+
+    i. Example: Generating *Dummies*
+
+7. Time Series
+
+    a. Time Series Data Structures in Pandas
+
+    b. *Resampling* and *Shifting* (Building Returns)
+
+    c. *Rolling Window* and *Expanding Window*
+
+    d. Example: *Equally Weighted* Portfolio
+
+    e. Example: Geometric Cumulative Return
+
+# Course Policies
+
+## Academic Integrity
+
+<!-- TODO: state the Universidad de Chile / FEN academic-integrity policy and
+     what it means for this course: which work must be individual, what
+     collaboration is permitted within a homework group, whether generative AI
+     tools may be used and how their use must be disclosed. -->
+
+TBD.
+
+## Late Work
+
+No late days or extensions are granted. Homework is due before 11:59pm on the
+date given in each assignment handout; the full submission rules are in
+`assignments/policies`.
+
+## Attendance
+
+<!-- TODO: state whether attendance is recorded and whether it affects the
+     grade. -->
+
+TBD.
+
+## Accessibility and Accommodations
+
+<!-- TODO: name the office that registers accommodations, give its contact
+     details, and say how far in advance the paperwork is needed. -->
+
+TBD.

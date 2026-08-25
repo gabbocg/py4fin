@@ -112,7 +112,14 @@ The course is delivered through lectures and hands-on exercises using Python.
 
 ## Building from Source
 
-The `.Rmd` sources render to PDF via `knitr`/`bookdown`, and the slides via `xaringan`.
+The `.Rmd` sources render to PDF via `knitr`/`bookdown`, and the slides via `xaringan`. The
+syllabus is a Quarto document (`syllabus/index.qmd`) built on the
+[qkit](https://github.com/gabbocg/qkit) syllabus template, so it needs
+[Quarto](https://quarto.org) rather than the R Markdown toolchain:
+
+```bash
+quarto render syllabus/index.qmd
+```
 
 **Python** (executed by `reticulate` inside the `{python}` chunks):
 
@@ -139,7 +146,7 @@ Alternatively, set `RETICULATE_PYTHON` in your environment before launching R.
 
 ```r
 install.packages(c("knitr", "rmarkdown", "bookdown", "reticulate",
-                   "xaringan", "xaringanthemer", "highcharter", "RefManageR", "tidyverse"))
+                   "xaringan", "xaringanthemer", "highcharter", "tidyverse"))
 remotes::install_github("mitchelloharawild/icons")  # slides
 remotes::install_github("hadley/emo")               # slides
 icons::download_fontawesome()
