@@ -24,30 +24,18 @@ bibliography: references.bib
 nocite: |
   @*
 
-cite-method: natbib
-biblio-style: apalike
-natbiboptions: round,authoryear
-link-citations: true
-
+# Everything that styles this document -- the article class, Palatino, 1in
+# margins, the running head, the course-information table and the natbib
+# reading list -- comes from the qkit-syllabus extension under _extensions/.
+# Reinstall or update it with:
+#   qkit::install_extension(path = "syllabus", which = "qkit-syllabus",
+#                           overwrite = TRUE)
+#
+# One consequence carried by the format: citations go through natbib/BibTeX
+# rather than citeproc, so titles in references.bib MUST be double-braced or
+# the apalike style lowercases them.
 format:
-  pdf:
-    pdf-engine: pdflatex
-    fontfamily: mathpazo
-    documentclass: article
-    classoption:
-      - "11pt"
-    geometry:
-      - margin=1in
-    fontsize: 11pt
-    linestretch: 1.05
-    number-sections: false
-    colorlinks: true
-    linkcolor: black
-    citecolor: blue
-    urlcolor: blue
-    template-partials:
-      - before-body.tex
-    include-in-header: preamble.tex
+  qkit-syllabus-pdf: default
 ---
 
 # Course Description

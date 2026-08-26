@@ -1,0 +1,53 @@
+title: qkit Syllabus
+author: Gabriel Cabrera Guzmán
+version: 0.1.0
+contributes:
+  formats:
+    # A separate extension directory rather than another entry under
+    # _extensions/qkit, because that one already contributes `pdf` for the CV
+    # and Quarto allows a directory only one format per base format. The
+    # directory name is what users write, so this resolves to
+    # `format: qkit-syllabus-pdf`.
+    pdf:
+      # before-body.tex replaces Quarto's stock partial: it hangs the optional
+      # logo above the title and builds the six-field course-information
+      # table. Dropping it is silent -- the syllabus still renders, just
+      # without the table and without the \date{} that carries `term:`.
+      template-partials:
+        - before-body.tex
+      include-in-header: preamble.tex
+
+      # pdflatex, not xelatex. mathpazo is a pdftex-era font package and
+      # Pandoc only honours `fontfamily:` on the pdftex path; under xelatex it
+      # loads fontspec and ignores the key, so the syllabus would quietly come
+      # out in Latin Modern. Change both lines together.
+      pdf-engine: pdflatex
+      fontfamily: mathpazo
+
+      documentclass: article
+      classoption:
+        - "11pt"
+      geometry:
+        - margin=1in
+      fontsize: 11pt
+      linestretch: 1.05
+      number-sections: false
+      colorlinks: true
+      linkcolor: black
+      citecolor: blue
+      urlcolor: blue
+
+      # Citations go through natbib/BibTeX rather than Quarto's default
+      # citeproc, matching the qkit paper template. This pairs with
+      # preamble.tex, which sets \refname (the heading over the generated
+      # list) and drops natbib's comma before the year -- so the two have to
+      # travel together, which is the reason they live in the extension
+      # rather than in each document's YAML.
+      #
+      # Consequence for authors: titles in the .bib MUST be double-braced, or
+      # apalike lowercases them. `apalike` is deliberate -- it ships in TeX
+      # Live base, so it resolves under the TinyTeX install Quarto uses.
+      cite-method: natbib
+      biblio-style: apalike
+      natbiboptions: round,authoryear
+      link-citations: true
