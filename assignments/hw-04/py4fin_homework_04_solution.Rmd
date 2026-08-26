@@ -31,7 +31,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1QGfCIflwK8pM3R3d30yNG5ASOL48G68o?usp=sharing)
+[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/github/gabbocg/py4Fin/blob/main/assignments/hw-04/ipynb/py4fin_homework_04_solution.ipynb)
 
 The file ETFs.xlsx contains the OHCL (*Open*, *High*, *Close* and *Low*) of the following *Exchange Traded Funds*^[These are collective investment funds whose investment policy consists of replicating an index.] at a daily frequency:
 

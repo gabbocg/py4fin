@@ -31,7 +31,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/15VnQpExSwJW3lVEt0v6TlusPO3lh09FH?usp=sharing)
+[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/github/gabbocg/py4Fin/blob/main/assignments/hw-03/ipynb/py4fin_homework_03.ipynb)
 
 1.  Import the files `stocks.pkl`, `sp500.pkl` and `rfree.pkl`.
 

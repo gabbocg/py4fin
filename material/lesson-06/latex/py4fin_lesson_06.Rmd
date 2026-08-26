@@ -35,7 +35,7 @@ nocite: '@*'
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[![Open In Colab](latex/colab-badge.pdf){height=15px}](https://colab.research.google.com/drive/1Mh4IJeMLaN_J5b9hBrKqdyOev_V4gErC?usp=sharing)
+[![Open In Colab](latex/colab-badge.pdf){height=15px}](https://colab.research.google.com/github/gabbocg/py4Fin/blob/main/material/lesson-06/ipynb/py4fin_lesson_06.ipynb)
 
 Developed by William Sharpe (1964), the CAPM (*Capital Asset Pricing Model*) starts from the idea that every investment carries two types of risk: systematic (market risk that cannot be diversified away) and unsystematic (the component of a stock's return that is not correlated with market movements). portfolio diversification can remove unsystematic risk; however, this is not the case for systematic risk. 
 

@@ -36,7 +36,7 @@ nocite: '@*'
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[![Open In Colab](latex/colab-badge.pdf){height=15px}](https://colab.research.google.com/drive/18YA35m9NaQdGRjhrF0FYjuhSYmjzqrrT?usp=sharing)
+[![Open In Colab](latex/colab-badge.pdf){height=15px}](https://colab.research.google.com/github/gabbocg/py4Fin/blob/main/material/lesson-07/ipynb/py4fin_lesson_07.ipynb)
 
 The Pandas library is designed for tabular data analysis. It not only provides useful classes and functions, it also allows you to apply functions from other libraries such as NumPy.
 

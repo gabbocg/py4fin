@@ -31,7 +31,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1hm9p-lWxQYT-oA6cs17rZ50hYCJzORz_?usp=sharing)
+[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/github/gabbocg/py4Fin/blob/main/assignments/hw-01/ipynb/py4fin_homework_01_solution.ipynb)
 
 The file `returns_portfolios.pkl` contains a nested list that stores the monthly return of two portfolios ($j = 1, 2$) from 2019-01-01 to 2020-12-01, plus an annualized risk-free rate in percentage terms with the same frequency. Using this file, answer the following:
 

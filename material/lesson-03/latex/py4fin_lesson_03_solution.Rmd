@@ -35,7 +35,7 @@ nocite: '@*'
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1onMssaidyu7UUzk9AUEHTxqXHh5ZZOTa?usp=sharing)
+[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/github/gabbocg/py4Fin/blob/main/material/lesson-03/ipynb/py4fin_lesson_03_solution.ipynb)
 
 # *Loops* with & without `range()`
 

@@ -31,7 +31,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/14Jx1ot2f1U0BV6VUGoa9AZmMMNH51D5_?usp=sharing)
+[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/github/gabbocg/py4Fin/blob/main/assignments/hw-02/ipynb/py4fin_homework_02_solution.ipynb)
 
 The file `returns_portfolios.pkl` contains a list that stores the monthly return of two portfolios ($j = 1, 2$) from 2015-01-01 to 2020-12-01. Using this file, answer the following:
 

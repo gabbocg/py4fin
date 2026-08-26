@@ -36,7 +36,7 @@ nocite: '@*'
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1IGhFuEQ81Y5W3an6FNe9tCFd30Cx3ZNM?usp=sharing)
+[![Open In Colab](latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/github/gabbocg/py4Fin/blob/main/material/lesson-08/ipynb/py4fin_lesson_08_solution.ipynb)
 
 APIs (Application Programming Interfaces) let your products and services communicate with others, without needing to know how they are implemented. A widely used API is the Yahoo Finance one, which lets the user access and download stock market data at different frequencies. In python there is the `yfinance` library that provides access to that API. To install `yfinance`:
 
