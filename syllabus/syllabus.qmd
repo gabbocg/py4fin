@@ -64,13 +64,20 @@ By the end of the course, students will be able to:
 
 # Prerequisites and Materials
 
-<!-- TODO: state the background students need before enrolling. -->
-
-**Prerequisites.** TBD.
+**Prerequisites.** No prior programming experience is assumed or required. The
+course does assume the quantitative background of an incoming master's student
+in finance: introductory statistics, basic linear algebra, and familiarity with
+core finance concepts such as returns, bond pricing and portfolio weights.
 
 **Software.** The course uses Python through the Anaconda distribution, and
 Google Colaboratory for the in-class notebooks; both are free. See
 @mckinney2017python for the Pandas and NumPy workflow the course follows.
+
+**Course material.** All material for this course --- lecture notes,
+notebooks, slides, assignments, the final exam and their solutions --- is
+publicly available at
+[github.com/gabbocg/py4fin](https://github.com/gabbocg/py4fin), and stays
+available after the course ends.
 
 **Readings.** The list at the end of this document is generated from
 `references.bib`. All four titles are recommended rather than required.
@@ -214,12 +221,22 @@ convention --- are set out in a separate document, `assignments/policies`.
 
 ## Academic Integrity
 
-<!-- TODO: state the Universidad de Chile / FEN academic-integrity policy and
-     what it means for this course: which work must be individual, what
-     collaboration is permitted within a homework group, whether generative AI
-     tools may be used and how their use must be disclosed. -->
+The Faculty's academic-integrity regulations apply in full. What they mean for
+this course is set out below.
 
-TBD.
+Homework may be prepared in groups of at most two, and the submitted work must
+be the work of that group alone. Discussing an approach with students outside
+the group is permitted. Sharing or copying code between groups is not. The
+final exam is individual.
+
+Generative AI tools may be used for the assignments, and students are asked to
+say briefly where they used them. The reason for permitting them is practical.
+These tools are part of how code is written now, and a course that forbids them
+teaches students nothing about using them well. The reason for requiring
+disclosure is equally practical. A student who cannot explain why their
+submitted code works has not met the objectives of this course, whatever
+produced the code, and both the final exam and the in-class notebooks are
+designed so that this shows.
 
 ## Late Work
 
@@ -229,7 +246,7 @@ date given in each assignment handout; the full submission rules are in
 
 ## Attendance
 
-<!-- TODO: state whether attendance is recorded and whether it affects the
-     grade. -->
-
-TBD.
+Attendance is not recorded and does not contribute to the grade. Each session
+is built around a notebook that students complete during class, so attendance
+is strongly advised. Students who miss a session should work through that
+notebook before the next one, since the material is cumulative.
